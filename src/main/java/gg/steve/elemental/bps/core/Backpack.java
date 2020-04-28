@@ -1,8 +1,11 @@
 package gg.steve.elemental.bps.core;
 
-import gg.steve.elemental.bps.core.exception.BackpackFullException;
 import gg.steve.elemental.bps.core.exception.LoadBackpackFullException;
+import gg.steve.elemental.bps.gui.BackpackGui;
+import gg.steve.elemental.bps.managers.ConfigManager;
+import gg.steve.elemental.bps.player.PlayerBackpackManager;
 import gg.steve.elemental.bps.utils.LogUtil;
+import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,10 +16,11 @@ public class Backpack {
     private UUID backpackId;
     private BackpackDataFileUtil data;
     private int capacity;
-    private boolean filled;
     private int amountFilled;
     private int lifetimeAmount;
     private Map<UUID, Integer> contents;
+    private String created;
+    private BackpackGui gui;
 
     public Backpack(UUID owner) {
         this.owner = owner;
@@ -24,8 +28,8 @@ public class Backpack {
         this.data = new BackpackDataFileUtil(this.owner, this.backpackId);
         this.capacity = data.get().getInt("capacity");
         this.amountFilled = 0;
-        this.filled = false;
         this.lifetimeAmount = data.get().getInt("lifetime-amount");
+        this.created = this.data.get().getString("created");
         try {
             this.loadContents();
         } catch (LoadBackpackFullException e) {
@@ -47,6 +51,7 @@ public class Backpack {
 
     /**
      * returns false if the item could not be added to the backpack, true otherwise
+     *
      * @param itemId
      * @param amount
      * @return boolean
@@ -67,6 +72,7 @@ public class Backpack {
 
     /**
      * returns false if the item could not be removed from the backpack, true otherwise
+     *
      * @param itemId
      * @param amount
      * @return boolean
@@ -99,6 +105,15 @@ public class Backpack {
         for (UUID itemId : contents.keySet()) {
             this.data.saveItem(itemId, this.contents.get(itemId));
         }
+    }
+
+    public void openGui(Player player) {
+        if (this.gui == null) {
+            this.gui = new BackpackGui(ConfigManager.CONFIG.get().getConfigurationSection("gui"), PlayerBackpackManager.getBackpackPlayer(this.owner));
+        } else {
+            this.gui.refresh();
+        }
+        this.gui.open(player);
     }
 
     public int getLifetimeAmount() {
@@ -134,10 +149,10 @@ public class Backpack {
     }
 
     public boolean isFilled() {
-        return filled;
+        return this.amountFilled == this.capacity;
     }
 
-    public void setFilled(boolean filled) {
-        this.filled = filled;
+    public String getCreated() {
+        return created;
     }
 }

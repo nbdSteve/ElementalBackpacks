@@ -1,7 +1,76 @@
 #
+enable-backpacks: true
+#
 created-format: "'&6'dd'&e'/'&6'MM'&e'/'&6'yyyy '&7at' '&6'HH'&e':'&6'mm'&e':'&6'ss '&7'z" # This will get set in the backpack data file so do not change this once you have released the server
 #
 starting-capacity: 2500
+#
+gui:
+  name: "&5&l{player}'s Backpack"
+  type: hopper
+  size: 5
+  1:
+    slot: 0
+    action: none
+    name: '&6&lBACKPACK STATS'
+    item: skull_item
+    owner: owner
+    data: 3
+    lore:
+      - ''
+      - '&e&lAmount Filled&7| {amount-filled}'
+      - '&e&lLifetime Amount&7| {lifetime-amount}'
+      - '&e&lCreated&7| {created}'
+      - ''
+      - '&7&o((Backpack UUID: {uuid}))'
+    enchantments:
+    item-flags:
+      - hide_attributes
+  2:
+    slot: 2
+    action: 100
+    name: '&f&l+100'
+    item: stained_glass_pane
+    data: 5
+    lore:
+      - ''
+      - '&7Increase your backpacks capacity by 100.'
+      - ''
+      - '&c&lCost: $5000'
+    enchantments:
+    item-flags:
+      - hide_attributes
+    cost: 5000.0
+  3:
+    slot: 3
+    action: 1000
+    name: '&f&l+1,000'
+    item: stained_glass_pane
+    data: 5
+    lore:
+      - ''
+      - '&7Increase your backpacks capacity by 1,000.'
+      - ''
+      - '&c&lCost: $50000'
+    enchantments:
+    item-flags:
+      - hide_attributes
+    cost: 5000.0
+  4:
+    slot: 4
+    action: 10000
+    name: '&f&l+10,000'
+    item: stained_glass_pane
+    data: 5
+    lore:
+      - ''
+      - '&7Increase your backpacks capacity by 10,000.'
+      - ''
+      - '&c&lCost: $500000'
+    enchantments:
+    item-flags:
+      - hide_attributes
+    cost: 5000.0
 #
 backpack-items:
   # syntax: material_name:byte_data:item_uuid (defined by you)

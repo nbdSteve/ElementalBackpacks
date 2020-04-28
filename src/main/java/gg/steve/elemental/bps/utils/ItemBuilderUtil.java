@@ -1,6 +1,6 @@
 package gg.steve.elemental.bps.utils;
 
-import gg.steve.mc.ap.nbt.NBTItem;
+import gg.steve.elemental.bps.nbt.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -80,9 +80,9 @@ public class ItemBuilderUtil {
         item.setItemMeta(itemMeta);
     }
 
-    public void addNBT(String name) {
+    public void addNBT() {
         nbtItem = new NBTItem(item);
-        nbtItem.setString("armor+.set", name);
+        nbtItem.setBoolean("backpack.gui.item", true);
     }
 
     public void setItemMeta(ItemMeta itemMeta) {

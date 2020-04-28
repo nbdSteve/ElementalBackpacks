@@ -1,6 +1,7 @@
 package gg.steve.elemental.bps.utils.actionbarapi;
 
-import gg.steve.mc.ap.ArmorPlus;
+import gg.steve.elemental.bps.Backpacks;
+import gg.steve.elemental.bps.core.Backpack;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -82,7 +83,7 @@ public class ActionBarAPI {
                 public void run() {
                     sendActionBar(player, "");
                 }
-            }.runTaskLater(ArmorPlus.get(), duration + 1);
+            }.runTaskLater(Backpacks.get(), duration + 1);
         }
         // Re-sends the messages every 3 seconds so it doesn't go away from the player's screen.
         while (duration > 40) {
@@ -92,7 +93,7 @@ public class ActionBarAPI {
                 public void run() {
                     sendActionBar(player, message);
                 }
-            }.runTaskLater(ArmorPlus.get(), (long) duration);
+            }.runTaskLater(Backpacks.get(), (long) duration);
         }
     }
 

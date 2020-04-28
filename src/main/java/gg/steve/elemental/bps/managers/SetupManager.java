@@ -1,6 +1,10 @@
 package gg.steve.elemental.bps.managers;
 
 import gg.steve.elemental.bps.Backpacks;
+import gg.steve.elemental.bps.cmd.PackCmd;
+import gg.steve.elemental.bps.gui.GuiClickListener;
+import gg.steve.elemental.bps.listener.PlayerBlockBreakListener;
+import gg.steve.elemental.bps.player.PlayerBackpackManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
@@ -26,7 +30,7 @@ public class SetupManager {
     }
 
     public static void registerCommands(Backpacks instance) {
-//        instance.getCommand("ap").setExecutor(new ApCmd());
+        instance.getCommand("pack").setExecutor(new PackCmd());
     }
 
     /**
@@ -36,5 +40,8 @@ public class SetupManager {
      */
     public static void registerEvents(Plugin instance) {
         PluginManager pm = instance.getServer().getPluginManager();
+        pm.registerEvents(new PlayerBackpackManager(), instance);
+        pm.registerEvents(new GuiClickListener(), instance);
+        pm.registerEvents(new PlayerBlockBreakListener(), instance);
     }
 }

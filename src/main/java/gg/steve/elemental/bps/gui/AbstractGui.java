@@ -1,7 +1,10 @@
 package gg.steve.elemental.bps.gui;
 
+import gg.steve.elemental.bps.core.Backpack;
+import gg.steve.elemental.bps.player.BackpackPlayer;
 import gg.steve.elemental.bps.utils.ColorUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
@@ -28,12 +31,12 @@ public abstract class AbstractGui {
     /**
      * Constructor the create a new Gui
      */
-    public AbstractGui(ConfigurationSection section, String type, Integer size) {
+    public AbstractGui(ConfigurationSection section, String type, Integer size, BackpackPlayer player) {
         this.inventoryID = UUID.randomUUID();
         if (!type.equalsIgnoreCase("none")) {
-            this.inventory = Bukkit.createInventory(null, InventoryType.valueOf(type), ColorUtil.colorize(section.getString("name")));
+            this.inventory = Bukkit.createInventory(null, InventoryType.valueOf(type.toUpperCase()), ColorUtil.colorize(section.getString("name").replace("{player}", player.getPlayer().getName())));
         } else {
-            this.inventory = Bukkit.createInventory(null, size, ColorUtil.colorize(section.getString("name")));
+            this.inventory = Bukkit.createInventory(null, size, ColorUtil.colorize(section.getString("name").replace("{player}", player.getPlayer().getName())));
         }
         this.clickActions = new HashMap<>();
         inventoriesByID.put(getInventoryID(), this);

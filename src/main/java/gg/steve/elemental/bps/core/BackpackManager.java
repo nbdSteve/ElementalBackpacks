@@ -3,6 +3,7 @@ package gg.steve.elemental.bps.core;
 import gg.steve.elemental.bps.managers.ConfigManager;
 import gg.steve.elemental.bps.utils.LogUtil;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
@@ -12,7 +13,6 @@ import java.util.UUID;
 public class BackpackManager {
     private static Map<ItemStack, UUID> backpackItemsByItemStack;
     private static Map<UUID, ItemStack> backpackItemsById;
-//    private static HashMap<UUID, BackpackPlayer> players;
 
     public static void init() {
         backpackItemsByItemStack = new HashMap<>();
@@ -30,7 +30,12 @@ public class BackpackManager {
     }
 
     public static boolean isBackpackItem(ItemStack item) {
-        return backpackItemsByItemStack.containsKey(item);
+        return backpackItemsByItemStack.containsKey(getKeyItem(item));
+    }
+
+    public static boolean isBackpackBlock(Block block) {
+        ItemStack key = new ItemStack(block.getType(), block.getData());
+        return backpackItemsByItemStack.containsKey(key);
     }
 
     public static void addBackpackItem(ItemStack item, UUID id) {
@@ -44,12 +49,17 @@ public class BackpackManager {
     }
 
     public static UUID getItemId(ItemStack item) {
-        if (!backpackItemsByItemStack.containsKey(item)) return null;
-        return backpackItemsByItemStack.get(item);
+        ItemStack key = getKeyItem(item);
+        if (!backpackItemsByItemStack.containsKey(key)) return null;
+        return backpackItemsByItemStack.get(key);
     }
 
     public static ItemStack getItem(UUID id) {
         if (!backpackItemsById.containsKey(id)) return null;
         return backpackItemsById.get(id);
+    }
+
+    public static ItemStack getKeyItem(ItemStack item) {
+        return new ItemStack(item.getType(), item.getDurability());
     }
 }
