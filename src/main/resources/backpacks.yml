@@ -1,0 +1,10 @@
+#
+created-format: "'&6'dd'&e'/'&6'MM'&e'/'&6'yyyy '&7at' '&6'HH'&e':'&6'mm'&e':'&6'ss '&7'z" # This will get set in the backpack data file so do not change this once you have released the server
+#
+starting-capacity: 2500
+#
+backpack-items:
+  # syntax: material_name:byte_data:item_uuid (defined by you)
+  - coal_ore:0:5d9df2b2-b0e7-431f-b358-35162a76ad22
+  - diamond_ore:0:3c6eb392-7eac-48fb-b9bf-f9973cccb2c7
+  - iron_ore:0:3666d526-f538-4740-880d-a7e47ce0d161
