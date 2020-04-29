@@ -116,6 +116,10 @@ public class Backpack {
         this.gui.open(player);
     }
 
+    public boolean hasItem(UUID id) {
+        return contents.containsKey(id);
+    }
+
     public int getLifetimeAmount() {
         return lifetimeAmount;
     }

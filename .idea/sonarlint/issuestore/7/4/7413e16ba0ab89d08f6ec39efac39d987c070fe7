@@ -1,0 +1,12 @@
+
+X	java:S125="<This block of commented-out lines of code should be removed.(‰â¯µ8Ø‹«÷›.
+R
+java:S1874"0Remove this use of "setOwner"; it is deprecated.(¾€°˜üÿÿÿÿ8Õ¢†ı›.
+X	java:S1256"<This block of commented-out lines of code should be removed.(‰â¯µ8Ø‹«÷›.
+X	java:S125%"<This block of commented-out lines of code should be removed.(ó°›£8Ø‹«÷›.
+M
+java:S1874"0Remove this use of "setOwner"; it is deprecated.(ø£¦ß8’š–ı›.
+i
+java:S1192"GDefine a constant instead of duplicating this literal ".owner" 3 times.(ºê•ùÿÿÿÿ8’š–ı›.
+W
+java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º8Õ¢†ı›.

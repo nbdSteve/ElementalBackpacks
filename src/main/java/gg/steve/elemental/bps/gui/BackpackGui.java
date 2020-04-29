@@ -1,11 +1,15 @@
 package gg.steve.elemental.bps.gui;
 
+import gg.steve.elemental.bps.Backpacks;
+import gg.steve.elemental.bps.message.CommandDebug;
+import gg.steve.elemental.bps.message.MessageType;
+import gg.steve.elemental.bps.permission.PermissionNode;
 import gg.steve.elemental.bps.player.BackpackPlayer;
 import gg.steve.elemental.bps.utils.GuiItemUtil;
 import org.bukkit.configuration.ConfigurationSection;
 
 public class BackpackGui extends AbstractGui {
-    BackpackPlayer player;
+    private BackpackPlayer player;
     private ConfigurationSection section;
 
     /**
@@ -35,6 +39,7 @@ public class BackpackGui extends AbstractGui {
                         player1.closeInventory();
                         break;
                     default:
+                        player1.closeInventory();
                         doCapacityUpgrade(section.getInt(entry + ".cost"), section.getInt(entry + ".action"));
                         break;
                 }
@@ -43,8 +48,21 @@ public class BackpackGui extends AbstractGui {
     }
 
     private void doCapacityUpgrade(double cost, int amount) {
+        // check that player can upgrade
+        if (!PermissionNode.CAPACITY.hasPermission(this.player.getPlayer().getPlayer())) {
+            CommandDebug.INSUFFICIENT_PERMISSION.message(this.player.getPlayer().getPlayer(), PermissionNode.CAPACITY.get());
+            return;
+        }
         // check that player has enough money first
+        if (Backpacks.eco() != null) {
+            if (Backpacks.eco().getBalance(this.player.getPlayer()) < cost) {
+                MessageType.INSUFFICIENT_FUNDS.message(this.player.getPlayer().getPlayer());
+                return;
+            } else {
+                Backpacks.eco().withdrawPlayer(this.player.getPlayer(), cost);
+            }
+        }
         this.player.getBackpack().increaseCapacity(amount);
-        // send a message
+        MessageType.INCREASE_CAPACITY.message(this.player.getPlayer().getPlayer(), Backpacks.getNumberFormat().format(amount), Backpacks.getNumberFormat().format(this.player.getBackpack().getCapacity()));
     }
 }

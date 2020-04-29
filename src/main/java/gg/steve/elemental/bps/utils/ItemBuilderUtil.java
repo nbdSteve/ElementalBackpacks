@@ -82,7 +82,7 @@ public class ItemBuilderUtil {
 
     public void addNBT() {
         nbtItem = new NBTItem(item);
-        nbtItem.setBoolean("backpack.gui.item", true);
+        nbtItem.setBoolean("backpacks.gui.item", true);
     }
 
     public void setItemMeta(ItemMeta itemMeta) {

@@ -1,0 +1,28 @@
+
+
+java:S1319"wThe type of the "openInventories" object should be an interface such as "Map" rather than the implementation "HashMap".(ŠÃª˜
+^
+java:S1128"ARemove this unused import 'gg.steve.elemental.bps.core.Backpack'.(ãşÓ²8şëõü›.
+K
+java:S1444"5Make this "public static inventoriesByID" field final(Ÿ”ôä
+ƒ
+java:S13192"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(·¤ú‰
+g	java:S114"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(êÿØ“
+W
+java:S1128"5Remove this unused import 'org.bukkit.OfflinePlayer'.(ƒØ¤¥şÿÿÿÿ8Íşôü›.
+
+java:S1319"wThe type of the "inventoriesByID" object should be an interface such as "Map" rather than the implementation "HashMap".(Ÿ”ôä
+q
+java:S1104"[Make inventoriesByID a static final constant or non-public and provide accessors if needed.(Ÿ”ôä
+ˆ
+java:S1319;"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Ôƒ›şÿÿÿÿ
+q
+java:S1104"[Make openInventories a static final constant or non-public and provide accessors if needed.(ŠÃª˜
+3
+java:S2386"Make this member "protected".(Ÿ”ôä
+K
+java:S1444"5Make this "public static openInventories" field final(ŠÃª˜
+ƒ
+java:S1319z"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ûä¡²
+3
+java:S2386"Make this member "protected".(ŠÃª˜

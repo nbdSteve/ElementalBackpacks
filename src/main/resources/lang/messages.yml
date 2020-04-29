@@ -1,0 +1,22 @@
+reload:
+  - '&5&lBackpacks &f>> &7You have successfully reloaded the plugin.'
+
+help:
+  - '&5&lBackpacks &f>> &7Please contact nbdSteve#0583 on discord for command, permission and configuration help.'
+
+insufficient-funds:
+  - '&5&lBackpacks &f>> &7You do not have sufficient funds to purchase that.'
+
+increase-capacity:
+  - '&5&lBackpacks &f>> &7Your backpack capacity has been increased by &6{amount}&7, total capacity is now &6{total-capacity} &7items.'
+
+backpack-full:
+  - '&5&lBackpacks &f>> &7Your backpack is completely filled with &6{total-capacity} &7items, all items mined until you sell your backpack will be lost.'
+
+sell-items:
+  - '&b&m-----------'
+  - ''
+  - '&bTotal items sold: &f{items-sold}'
+  - '&bMoney Made: &f{deposit} ⛁'
+  - ''
+  - '&b&m-----------'

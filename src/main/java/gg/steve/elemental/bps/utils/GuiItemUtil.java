@@ -1,5 +1,6 @@
 package gg.steve.elemental.bps.utils;
 
+import gg.steve.elemental.bps.Backpacks;
 import gg.steve.elemental.bps.core.Backpack;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
@@ -22,12 +23,13 @@ public class GuiItemUtil {
             builder.setItemMeta(meta);
         }
         builder.addName(section.getString(entry + ".name"));
-        builder.setLorePlaceholders("{amount-filled}", "{lifetime-amount}", "{created}", "{uuid}");
+        builder.setLorePlaceholders("{amount-filled}", "{lifetime-amount}", "{created}", "{uuid}", "{capacity}");
         builder.addLore(section.getStringList(entry + ".lore"),
-                String.valueOf(backpack.getAmountFilled()),
-                String.valueOf(backpack.getLifetimeAmount()),
+                Backpacks.getNumberFormat().format(backpack.getAmountFilled()),
+                Backpacks.getNumberFormat().format(backpack.getLifetimeAmount()),
                 backpack.getCreated(),
-                String.valueOf(backpack.getBackpackId()));
+                String.valueOf(backpack.getBackpackId()),
+                Backpacks.getNumberFormat().format(backpack.getCapacity()));
         builder.addEnchantments(section.getStringList(entry + ".enchantments"));
         builder.addItemFlags(section.getStringList(entry + ".item-flags"));
         builder.addNBT();

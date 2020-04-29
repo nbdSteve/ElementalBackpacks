@@ -3,6 +3,7 @@ package gg.steve.elemental.bps.listener;
 import gg.steve.elemental.bps.core.Backpack;
 import gg.steve.elemental.bps.core.BackpackManager;
 import gg.steve.elemental.bps.managers.ConfigManager;
+import gg.steve.elemental.bps.message.MessageType;
 import gg.steve.elemental.bps.player.PlayerBackpackManager;
 import gg.steve.elemental.bps.utils.LogUtil;
 import org.bukkit.Material;
@@ -25,8 +26,9 @@ public class PlayerBlockBreakListener implements Listener {
         }
         for (ItemStack drop : event.getBlock().getDrops(event.getPlayer().getItemInHand())) {
             if (!BackpackManager.isBackpackItem(drop)) continue;
-            backpack.add(BackpackManager.getItemId(drop), drop.getAmount());
-//            LogUtil.info("Successfully added ItemStack: " + drop.getType().name() + ", with itemId: " + itemId + ", to the backpack. Amount filled: " + backpack.getAmountFilled());
+            if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
+                MessageType.BACKPACK_FULL.message(event.getPlayer());
+            }
         }
         event.getBlock().getDrops().clear();
         event.getBlock().setType(Material.AIR);

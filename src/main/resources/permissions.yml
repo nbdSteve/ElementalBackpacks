@@ -1,0 +1,8 @@
+gui:
+  increase-capacity: backpacks.gui.capacity
+
+command:
+  gui: backpacks.pack-gui
+  help: backpacks.help
+  reload: backpacks.reload
+  give: backpacks.give

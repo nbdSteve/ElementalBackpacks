@@ -1,0 +1,25 @@
+
+>
+java:S1148I"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+e
+java:S3027"JPut single-quotes around '.' to use the faster "lastIndexOf(char)" method.(«¿¸ıÿÿÿÿ
+S
+java:S3878."8Remove this array creation and simply pass the elements.(²¯®¹úÿÿÿÿ
+S
+java:S3878;"8Remove this array creation and simply pass the elements.(ößƒÚøÿÿÿÿ
+S
+java:S3878>"8Remove this array creation and simply pass the elements.(ößƒÚøÿÿÿÿ
+l
+java:S1192'"VDefine a constant instead of duplicating this literal "net.minecraft.server." 7 times.(‡º»û
+U
+java:S1118":Add a private constructor to hide the implicit public one.(õæ‚òûÿÿÿÿ
+S
+java:S3878?"8Remove this array creation and simply pass the elements.(–ÉÌúÿÿÿÿ
+S
+java:S3878<"8Remove this array creation and simply pass the elements.(åĞ‘·ÿÿÿÿÿ
+V
+java:S2184V"@Cast one of the operands of this addition operation to a "long".(¤’å
+P
+java:S11412"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+^
+java:S1128"ARemove this unused import 'gg.steve.elemental.bps.core.Backpack'.(ãşÓ²8™ õû›.

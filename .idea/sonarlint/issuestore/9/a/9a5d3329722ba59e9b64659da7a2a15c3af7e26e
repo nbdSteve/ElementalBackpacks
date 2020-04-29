@@ -1,0 +1,7 @@
+
+\
+java:S1118":Add a private constructor to hide the implicit public one.(·¾”Õùÿÿÿÿ8êùÆ÷›.
+L
+java:S1874%"/Remove this use of "getData"; it is deprecated.(¼«Œè8õ´¹ü›.
+R
+java:S1874?"5Remove this use of "getDurability"; it is deprecated.(¿ó˜Õ8õ´¹ü›.

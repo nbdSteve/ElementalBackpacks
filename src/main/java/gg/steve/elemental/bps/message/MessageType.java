@@ -3,14 +3,18 @@ package gg.steve.elemental.bps.message;
 import gg.steve.elemental.bps.managers.ConfigManager;
 import gg.steve.elemental.bps.utils.ColorUtil;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 import java.util.List;
 
 public enum MessageType {
-    FILLER("debug");
+    RELOAD("reload"),
+    HELP("help"),
+    INCREASE_CAPACITY("increase-capacity", "{amount}", "{total-capacity}"),
+    BACKPACK_FULL("backpack-full", "{total-capacity}"),
+    SELL_ITEMS("sell-items", "{items-sold}", "{deposit}"),
+    INSUFFICIENT_FUNDS("insufficient-funds");
 
     private String path;
     private List<String> placeholders;

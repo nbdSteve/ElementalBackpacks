@@ -4,6 +4,8 @@ import gg.steve.elemental.bps.managers.ConfigManager;
 import org.bukkit.command.CommandSender;
 
 public enum PermissionNode {
+    GUI("command.gui"),
+    CAPACITY("gui.increase-capacity"),
     RELOAD("command.reload"),
     HELP("command.help");
 

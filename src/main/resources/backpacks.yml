@@ -18,16 +18,17 @@ gui:
     data: 3
     lore:
       - ''
-      - '&e&lAmount Filled&7| {amount-filled}'
-      - '&e&lLifetime Amount&7| {lifetime-amount}'
-      - '&e&lCreated&7| {created}'
+      - '&f&lAmount Filled&7| &6{amount-filled}'
+      - '&f&lMax Capacity&7| &6{capacity}'
+      - '&f&lLifetime Amount&7| &6{lifetime-amount}'
+      - '&f&lCreated&7| {created}'
       - ''
       - '&7&o((Backpack UUID: {uuid}))'
     enchantments:
     item-flags:
       - hide_attributes
   2:
-    slot: 2
+    slot: 1
     action: 100
     name: '&f&l+100'
     item: stained_glass_pane
@@ -42,7 +43,7 @@ gui:
       - hide_attributes
     cost: 5000.0
   3:
-    slot: 3
+    slot: 2
     action: 1000
     name: '&f&l+1,000'
     item: stained_glass_pane
@@ -57,7 +58,7 @@ gui:
       - hide_attributes
     cost: 5000.0
   4:
-    slot: 4
+    slot: 3
     action: 10000
     name: '&f&l+10,000'
     item: stained_glass_pane
@@ -71,9 +72,37 @@ gui:
     item-flags:
       - hide_attributes
     cost: 5000.0
+  5:
+    slot: 4
+    action: close
+    name: '&c&lExit'
+    item: barrier
+    data: 0
+    lore:
+      - '&7'
+      - '&7&o((left click to close this gui))'
+      - '&7'
+    enchantments:
+    item-flags:
+      - hide_attributes
 #
 backpack-items:
-  # syntax: material_name:byte_data:item_uuid (defined by you)
-  - coal_ore:0:5d9df2b2-b0e7-431f-b358-35162a76ad22
-  - diamond_ore:0:3c6eb392-7eac-48fb-b9bf-f9973cccb2c7
-  - iron_ore:0:3666d526-f538-4740-880d-a7e47ce0d161
+  # syntax: material_name:byte_data:item_uuid (defined by you):price
+  - coal_ore:0:5d9df2b2-b0e7-431f-b358-35162a76ad22:3.04
+  - coal:0:6767102f-f8aa-475a-9218-fd630041be52:3.04
+  - coal_block:0:3b0aa842-16a3-4547-a1f7-869a2b184df9:20.31
+  - diamond_ore:0:3c6eb392-7eac-48fb-b9bf-f9973cccb2c7:10.42
+  - diamond:0:de82e560-8f23-49c4-a63b-c1aee9d211cc:10.42
+  - diamond_block:0:402d7f63-a27a-4a52-a1d4-eeb4994805c8:90.42
+  - iron_ore:0:3666d526-f538-4740-880d-a7e47ce0d161:6.87
+  - iron_block:0:c34c84a4-223d-43bb-87a4-1bb044f549f2:60.87
+  - gold_ore:0:8db504c2-2133-43b2-a57d-e3c1cd3f0d88:8.01
+  - gold_block:0:bf47dc88-fa40-4519-9f09-d97fd254c46e:72.01
+  - emerald_ore:0:e92b5b03-9b0d-47c1-84e4-e9aa1cb724ab:30.12
+  - emerald:0:7088d449-e8ff-46a3-ac54-4bec67bf6874:30.12
+  - emerald_block:0:ca84bbb2-0b2b-4b81-9094-21dc5c22784b:120.12
+
+sell-groups:
+  example:
+    3666d526-f538-4740-880d-a7e47ce0d161:
+      price: 12.02
