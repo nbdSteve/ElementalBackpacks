@@ -11,6 +11,9 @@ import java.util.List;
 public enum CommandDebug {
     INSUFFICIENT_PERMISSION("insufficient-permission", "{node}"),
     INVALID_COMMAND("invalid-command"),
+    INVALID_NUMBER_OF_ARGUMENTS("invalid-number-of-arguments"),
+    TARGET_NOT_ONLINE("target-not-online"),
+    INVALID_SELL_GROUP("invalid-sell-group"),
     ONLY_PLAYERS_ACCESSIBLE("only-player-accessible");
 
     private final String path;

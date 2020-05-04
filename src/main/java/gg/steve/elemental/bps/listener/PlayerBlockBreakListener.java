@@ -6,6 +6,8 @@ import gg.steve.elemental.bps.managers.ConfigManager;
 import gg.steve.elemental.bps.message.MessageType;
 import gg.steve.elemental.bps.player.PlayerBackpackManager;
 import gg.steve.elemental.bps.utils.LogUtil;
+import gg.steve.elemental.pets.api.PetApi;
+import gg.steve.elemental.pets.core.PetType;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,7 +29,17 @@ public class PlayerBlockBreakListener implements Listener {
         for (ItemStack drop : event.getBlock().getDrops(event.getPlayer().getItemInHand())) {
             if (!BackpackManager.isBackpackItem(drop)) continue;
             if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
-                MessageType.BACKPACK_FULL.message(event.getPlayer());
+                MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
+                continue;
+            }
+            if (PetApi.isPetActive(event.getPlayer(), PetType.FORTUNE) &&
+                    PetApi.isProcing(PetApi.getActivePet(event.getPlayer(), PetType.FORTUNE), PetApi.getPetRarity(event.getPlayer(), PetType.FORTUNE))) {
+                for (int i = 0; i < PetApi.getBoostAmount(PetType.FORTUNE); i++) {
+                    event.getPlayer().sendMessage("double drops bitch");
+                    if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
+                        MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
+                    }
+                }
             }
         }
         event.getBlock().getDrops().clear();

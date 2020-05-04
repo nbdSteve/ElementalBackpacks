@@ -5,4 +5,5 @@ command:
   gui: backpacks.pack-gui
   help: backpacks.help
   reload: backpacks.reload
-  give: backpacks.give
+  sell: backpacks.sell
+  admin-sell: backpacks.admin.sell

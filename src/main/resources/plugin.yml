@@ -4,6 +4,8 @@ main: gg.steve.elemental.bps.Backpacks
 api-version: 1.13
 authors: [stevegoodhill]
 description: Virtual backpacks plugin for ElementalMC
+depend:
+  - Pets
 commands:
   pack:
     usage: /<command>

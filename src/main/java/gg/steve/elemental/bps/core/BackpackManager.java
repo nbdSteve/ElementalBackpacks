@@ -5,8 +5,12 @@ import gg.steve.elemental.bps.managers.ConfigManager;
 import gg.steve.elemental.bps.message.MessageType;
 import gg.steve.elemental.bps.player.BackpackPlayer;
 import gg.steve.elemental.bps.utils.LogUtil;
+import gg.steve.elemental.pets.api.PetApi;
+import gg.steve.elemental.pets.core.PetType;
+import gg.steve.elemental.pets.rarity.PetRarity;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
@@ -86,26 +90,57 @@ public class BackpackManager {
 
     public static void sellGroup(BackpackPlayer player, String group) {
         int amountSold = 0;
+        int petProcAmount = 0;
+        double petBoostAmount = 0;
         double totalDeposit = 0;
         Backpack backpack = player.getBackpack();
+        Player bPlayer = player.getPlayer().getPlayer();
+        boolean petActive = PetApi.isPetActive(bPlayer, PetType.MONEY);
+        PetRarity rarity = null;
+        double boostPercent = PetApi.getBoostAmount(PetType.MONEY) - 1;
+        if (petActive) {
+            rarity = PetApi.getPetRarity(bPlayer, PetType.MONEY);
+        }
         if (group.equalsIgnoreCase("all")) {
             for (UUID id : backpack.getContents().keySet()) {
+                if (!backpack.hasItem(id) || backpack.getAmount(id) == 0) continue;
                 amountSold += backpack.getAmount(id);
-                totalDeposit += sellItem(id, player, basePrices.get(id));
+                if (petActive && PetApi.isProcing(PetApi.getActivePet(bPlayer, PetType.MONEY), rarity)) {
+                    petProcAmount++;
+                    int amount = backpack.getAmount(id);
+                    double deposit = sellItem(id, player, basePrices.get(id), PetApi.getBoostAmount(PetType.MONEY));
+                    petBoostAmount += (deposit - (basePrices.get(id) * amount));
+                    totalDeposit += deposit;
+                } else {
+                    totalDeposit += sellItem(id, player, basePrices.get(id), 1);
+                }
             }
         } else {
             for (UUID id : groupPrices.get(group).keySet()) {
+                if (!backpack.hasItem(id) || backpack.getAmount(id) == 0) continue;
                 amountSold += backpack.getAmount(id);
-                totalDeposit += sellItem(id, player, basePrices.get(id));
+                if (petActive && PetApi.isProcing(PetApi.getActivePet(bPlayer, PetType.MONEY), rarity)) {
+                    petProcAmount++;
+                    int amount = backpack.getAmount(id);
+                    double deposit = (sellItem(id, player, groupPrices.get(group).get(id), PetApi.getBoostAmount(PetType.MONEY)));
+                    petBoostAmount += (deposit - (groupPrices.get(group).get(id) * amount));
+                    totalDeposit += deposit;
+                } else {
+                    totalDeposit += sellItem(id, player, groupPrices.get(group).get(id), 1);
+                }
             }
         }
-        MessageType.SELL_ITEMS.message(player.getPlayer().getPlayer(), Backpacks.getNumberFormat().format(amountSold), Backpacks.getNumberFormat().format(totalDeposit));
+        MessageType.SELL_ITEMS.message(player.getPlayer().getPlayer(),
+                Backpacks.getNumberFormat().format(amountSold),
+                Backpacks.getNumberFormat().format(totalDeposit),
+                Backpacks.getNumberFormat().format(boostPercent * 100),
+                Backpacks.getNumberFormat().format(petProcAmount),
+                Backpacks.getNumberFormat().format(petBoostAmount));
     }
 
-    public static double sellItem(UUID id, BackpackPlayer player, double price) {
+    public static double sellItem(UUID id, BackpackPlayer player, double price, double boost) {
         Backpack backpack = player.getBackpack();
-        if (!backpack.hasItem(id)) return 0;
-        double deposit = backpack.getAmount(id) * price;
+        double deposit = (backpack.getAmount(id) * price) * boost;
         backpack.remove(id, backpack.getAmount(id));
         if (Backpacks.eco() != null) {
             Backpacks.eco().depositPlayer(player.getPlayer(), deposit);

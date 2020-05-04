@@ -17,6 +17,7 @@ sell-items:
   - '&b&m-----------'
   - ''
   - '&bTotal items sold: &f{items-sold}'
+  - '&bBooster &3+{booster}% x{times-proced}&7| &f{booster-amount} ⛁'
   - '&bMoney Made: &f{deposit} ⛁'
   - ''
   - '&b&m-----------'

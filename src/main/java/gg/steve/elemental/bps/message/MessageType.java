@@ -13,7 +13,7 @@ public enum MessageType {
     HELP("help"),
     INCREASE_CAPACITY("increase-capacity", "{amount}", "{total-capacity}"),
     BACKPACK_FULL("backpack-full", "{total-capacity}"),
-    SELL_ITEMS("sell-items", "{items-sold}", "{deposit}"),
+    SELL_ITEMS("sell-items", "{items-sold}", "{deposit}", "{booster}", "{times-proced}", "{booster-amount}"),
     INSUFFICIENT_FUNDS("insufficient-funds");
 
     private String path;

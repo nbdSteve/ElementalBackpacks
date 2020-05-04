@@ -1,4 +1,6 @@
 
-X	java:S125"<This block of commented-out lines of code should be removed.(åŒ‚8ùóºü›.
+u	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(É†Ë·8´Šõ.
 R
-java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(É†Ë·8ºõæû›.
+java:S1874"5Remove this use of "getItemInHand"; it is deprecated.(É†Ë·8ºõæû›.
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ØñØ 8Œ„õ.

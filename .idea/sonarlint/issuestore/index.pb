@@ -79,3 +79,5 @@ k
 ;src/main/java/gg/steve/elemental/bps/cmd/sub/ReloadCmd.java,5\d\5da3968a664e1881a820de13b8eb6baaebf4172a
 i
 9src/main/java/gg/steve/elemental/bps/cmd/sub/HelpCmd.java,8\e\8ed1d7a6517e15f6507567413f9301a4c51893df
+i
+9src/main/java/gg/steve/elemental/bps/cmd/sub/SellCmd.java,8\e\8ebbdc015c29f2598e655b1c3c25e82daaff19ed

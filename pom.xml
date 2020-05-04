@@ -6,7 +6,7 @@
 
     <groupId>gg.steve.elemental</groupId>
     <artifactId>Backpacks</artifactId>
-    <version>0.8.2-BETA</version>
+    <version>0.9.3</version>
     <packaging>jar</packaging>
 
     <name>Backpacks</name>
@@ -81,6 +81,13 @@
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>gg.steve.elemental</groupId>
+            <artifactId>Pets</artifactId>
+            <version>0.4.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/lib/Pets-0.4.6.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

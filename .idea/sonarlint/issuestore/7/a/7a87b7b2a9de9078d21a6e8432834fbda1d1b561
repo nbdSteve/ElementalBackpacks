@@ -1,4 +1,4 @@
 
 \	java:S899`";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ8Î×¥÷›.
-k
-java:S4042`"IUse "java.nio.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8Î×¥÷›.
+p
+java:S4042`"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8Î×¥÷›.

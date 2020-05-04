@@ -7,6 +7,8 @@ public enum PermissionNode {
     GUI("command.gui"),
     CAPACITY("gui.increase-capacity"),
     RELOAD("command.reload"),
+    SELL("command.sell"),
+    ADMIN_SELL("command.admin-sell"),
     HELP("command.help");
 
     private String path;
