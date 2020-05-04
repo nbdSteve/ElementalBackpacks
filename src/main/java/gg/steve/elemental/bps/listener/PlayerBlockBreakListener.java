@@ -9,6 +9,7 @@ import gg.steve.elemental.bps.utils.LogUtil;
 import gg.steve.elemental.pets.api.PetApi;
 import gg.steve.elemental.pets.core.PetType;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -26,18 +27,21 @@ public class PlayerBlockBreakListener implements Listener {
             LogUtil.info("Critical error, please contact nbdSteve#0583 on discord");
             return;
         }
+        int fortune = event.getPlayer().getItemInHand().getEnchantments().get(Enchantment.LOOT_BONUS_BLOCKS) + 1;
         for (ItemStack drop : event.getBlock().getDrops(event.getPlayer().getItemInHand())) {
-            if (!BackpackManager.isBackpackItem(drop)) continue;
-            if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
-                MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
-                continue;
-            }
-            if (PetApi.isPetActive(event.getPlayer(), PetType.FORTUNE) &&
-                    PetApi.isProcing(PetApi.getActivePet(event.getPlayer(), PetType.FORTUNE), PetApi.getPetRarity(event.getPlayer(), PetType.FORTUNE))) {
-                for (int i = 0; i < PetApi.getBoostAmount(PetType.FORTUNE); i++) {
-                    event.getPlayer().sendMessage("double drops bitch");
-                    if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
-                        MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
+            for (int i = 0; i < fortune; i++) {
+                if (!BackpackManager.isBackpackItem(drop)) continue;
+                if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
+                    MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
+                    continue;
+                }
+                if (PetApi.isPetActive(event.getPlayer(), PetType.FORTUNE) &&
+                        PetApi.isProcing(PetApi.getActivePet(event.getPlayer(), PetType.FORTUNE), PetApi.getPetRarity(event.getPlayer(), PetType.FORTUNE))) {
+                    for (int y = 0; y < PetApi.getBoostAmount(PetType.FORTUNE); y++) {
+                        event.getPlayer().sendMessage("double drops bitch");
+                        if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
+                            MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
+                        }
                     }
                 }
             }
