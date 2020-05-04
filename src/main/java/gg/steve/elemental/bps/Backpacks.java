@@ -3,6 +3,7 @@ package gg.steve.elemental.bps;
 import gg.steve.elemental.bps.core.BackpackManager;
 import gg.steve.elemental.bps.managers.FileManager;
 import gg.steve.elemental.bps.managers.SetupManager;
+import gg.steve.elemental.bps.papi.BackpacksExpansion;
 import gg.steve.elemental.bps.player.PlayerBackpackManager;
 import gg.steve.elemental.bps.utils.LogUtil;
 import net.milkbowl.vault.economy.Economy;
@@ -31,6 +32,10 @@ public final class Backpacks extends JavaPlugin {
         } else {
             LogUtil.info("Unable to find economy instance, disabling economy features.");
             economy = null;
+        }
+        // register placeholders with papi
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new BackpacksExpansion(instance).register();
         }
     }
 
