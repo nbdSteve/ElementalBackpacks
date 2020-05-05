@@ -38,7 +38,6 @@ public class PlayerBlockBreakListener implements Listener {
                 if (PetApi.isPetActive(event.getPlayer(), PetType.FORTUNE) &&
                         PetApi.isProcing(PetApi.getActivePet(event.getPlayer(), PetType.FORTUNE), PetApi.getPetRarity(event.getPlayer(), PetType.FORTUNE))) {
                     for (int y = 0; y < PetApi.getBoostAmount(PetType.FORTUNE); y++) {
-                        event.getPlayer().sendMessage("double drops bitch");
                         if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
                             MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
                         }

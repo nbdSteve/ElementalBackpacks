@@ -6,7 +6,7 @@
 
     <groupId>gg.steve.elemental</groupId>
     <artifactId>Backpacks</artifactId>
-    <version>0.9.5</version>
+    <version>0.9.6</version>
     <packaging>jar</packaging>
 
     <name>Backpacks</name>
@@ -97,6 +97,13 @@
             <version>0.4.6</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/lib/Pets-0.4.6.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>gg.steve.elemental</groupId>
+            <artifactId>ElementalTokens</artifactId>
+            <version>0.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/lib/ElementalTokens-0.3.2.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

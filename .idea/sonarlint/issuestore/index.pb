@@ -83,3 +83,5 @@ i
 9src/main/java/gg/steve/elemental/bps/cmd/sub/SellCmd.java,8\e\8ebbdc015c29f2598e655b1c3c25e82daaff19ed
 q
 Asrc/main/java/gg/steve/elemental/bps/papi/BackpacksExpansion.java,2\3\2379e56b8e098d2122f96542943137314e5a5b01
+j
+:src/main/java/gg/steve/elemental/bps/api/BackpacksApi.java,9\c\9c3b1385ef8cbc3c8cae1e6bdbce8e44b3c18702

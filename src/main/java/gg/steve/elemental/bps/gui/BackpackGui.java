@@ -6,6 +6,9 @@ import gg.steve.elemental.bps.message.MessageType;
 import gg.steve.elemental.bps.permission.PermissionNode;
 import gg.steve.elemental.bps.player.BackpackPlayer;
 import gg.steve.elemental.bps.utils.GuiItemUtil;
+import gg.steve.elemental.tokens.api.TokensApi;
+import gg.steve.elemental.tokens.core.TokenPlayer;
+import gg.steve.elemental.tokens.core.TokenType;
 import org.bukkit.configuration.ConfigurationSection;
 
 public class BackpackGui extends AbstractGui {
@@ -47,19 +50,20 @@ public class BackpackGui extends AbstractGui {
         }
     }
 
-    private void doCapacityUpgrade(double cost, int amount) {
+    private void doCapacityUpgrade(int cost, int amount) {
         // check that player can upgrade
         if (!PermissionNode.CAPACITY.hasPermission(this.player.getPlayer().getPlayer())) {
             CommandDebug.INSUFFICIENT_PERMISSION.message(this.player.getPlayer().getPlayer(), PermissionNode.CAPACITY.get());
             return;
         }
         // check that player has enough money first
-        if (Backpacks.eco() != null) {
-            if (Backpacks.eco().getBalance(this.player.getPlayer()) < cost) {
+        if (TokensApi.getInstance() != null) {
+            TokenPlayer tokenPlayer = TokensApi.getTokenPlayer(this.player.getPlayer().getUniqueId());
+            if (tokenPlayer.getTokens(TokenType.TOKEN) < cost) {
                 MessageType.INSUFFICIENT_FUNDS.message(this.player.getPlayer().getPlayer());
                 return;
             } else {
-                Backpacks.eco().withdrawPlayer(this.player.getPlayer(), cost);
+                tokenPlayer.removeTokens(TokenType.TOKEN, cost);
             }
         }
         this.player.getBackpack().increaseCapacity(amount);

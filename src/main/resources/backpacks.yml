@@ -37,11 +37,11 @@ gui:
       - ''
       - '&7Increase your backpacks capacity by 100.'
       - ''
-      - '&c&lCost: $5000'
+      - '&c&lCost: 50 &7&o((&b&oPrestige Tokens&7&o))'
     enchantments:
     item-flags:
       - hide_attributes
-    cost: 5000.0
+    cost: 50
   3:
     slot: 2
     action: 1000
@@ -52,11 +52,11 @@ gui:
       - ''
       - '&7Increase your backpacks capacity by 1,000.'
       - ''
-      - '&c&lCost: $50000'
+      - '&c&lCost: 500 &7&o((&b&oPrestige Tokens&7&o))'
     enchantments:
     item-flags:
       - hide_attributes
-    cost: 5000.0
+    cost: 500
   4:
     slot: 3
     action: 10000
@@ -67,11 +67,11 @@ gui:
       - ''
       - '&7Increase your backpacks capacity by 10,000.'
       - ''
-      - '&c&lCost: $500000'
+      - '&c&lCost: 5000 &7&o((&b&oPrestige Tokens&7&o))'
     enchantments:
     item-flags:
       - hide_attributes
-    cost: 5000.0
+    cost: 5000
   5:
     slot: 4
     action: close
