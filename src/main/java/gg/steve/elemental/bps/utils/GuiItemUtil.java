@@ -2,6 +2,8 @@ package gg.steve.elemental.bps.utils;
 
 import gg.steve.elemental.bps.Backpacks;
 import gg.steve.elemental.bps.core.Backpack;
+import gg.steve.elemental.tokens.api.TokensApi;
+import gg.steve.elemental.tokens.core.TokenType;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
@@ -23,50 +25,17 @@ public class GuiItemUtil {
             builder.setItemMeta(meta);
         }
         builder.addName(section.getString(entry + ".name"));
-        builder.setLorePlaceholders("{amount-filled}", "{lifetime-amount}", "{created}", "{uuid}", "{capacity}");
+        builder.setLorePlaceholders("{amount-filled}", "{lifetime-amount}", "{created}", "{uuid}", "{capacity}", "{balance}");
         builder.addLore(section.getStringList(entry + ".lore"),
                 Backpacks.getNumberFormat().format(backpack.getAmountFilled()),
                 Backpacks.getNumberFormat().format(backpack.getLifetimeAmount()),
                 backpack.getCreated(),
                 String.valueOf(backpack.getBackpackId()),
-                Backpacks.getNumberFormat().format(backpack.getCapacity()));
+                Backpacks.getNumberFormat().format(backpack.getCapacity()),
+                Backpacks.getNumberFormat().format(TokensApi.getTokenPlayer(backpack.getOwner()).getTokens(TokenType.TOKEN)));
         builder.addEnchantments(section.getStringList(entry + ".enchantments"));
         builder.addItemFlags(section.getStringList(entry + ".item-flags"));
         builder.addNBT();
         return builder.getItem();
     }
-//
-//    public static void purchase(ConfigurationSection section, String entry, Player player, Set set) {
-//        if (PermissionNode.isPurchasePerms() && !PermissionNode.PURCHASE.hasPurchasePermission(player, set)) {
-//            CommandDebug.INSUFFICIENT_PERMISSION.message(player, PermissionNode.PURCHASE.get() + set.getName());
-//            player.closeInventory();
-//            return;
-//        }
-//        Piece piece;
-//        try {
-//            piece = Piece.valueOf(section.getString(entry + ".action").toUpperCase());
-//        } catch (Exception e) {
-//            LogUtil.warning("There is an error with your gui configuration for the " + set.getName() + " armor set, please review your configuration.");
-//            CommandDebug.GUI_CONFIGURATION_ERROR.message(player);
-//            player.closeInventory();
-//            return;
-//        }
-//        if (ArmorPlus.eco() == null) {
-//            // add a random uuid to the armor piece, it will make the item unstackable
-//            NBTItem nbtItem = new NBTItem(set.getPiece(piece));
-//            nbtItem.setString("armor+.uuid", String.valueOf(UUID.randomUUID()));
-//            player.getInventory().addItem(nbtItem.getItem());
-//        }
-//        if (ArmorPlus.eco().getBalance(player) >= section.getDouble(entry + ".cost")) {
-//            ArmorPlus.eco().withdrawPlayer(player, section.getDouble(entry + ".cost"));
-//            // add a random uuid to the armor piece, it will make the item unstackable
-//            NBTItem nbtItem = new NBTItem(set.getPiece(piece));
-//            nbtItem.setString("armor+.uuid", String.valueOf(UUID.randomUUID()));
-//            player.getInventory().addItem(nbtItem.getItem());
-//            MessageType.PURCHASE.message(player, piece.toString(), set.getName());
-//        } else {
-//            player.closeInventory();
-//            MessageType.INSUFFICIENT_FUNDS.message(player);
-//        }
-//    }
 }

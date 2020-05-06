@@ -27,7 +27,10 @@ public class PlayerBlockBreakListener implements Listener {
             LogUtil.info("Critical error, please contact nbdSteve#0583 on discord");
             return;
         }
-        int fortune = event.getPlayer().getItemInHand().getEnchantments().get(Enchantment.LOOT_BONUS_BLOCKS) + 1;
+        int fortune = 1;
+        if (event.getPlayer().getItemInHand().getEnchantments().containsKey(Enchantment.LOOT_BONUS_BLOCKS)) {
+            fortune = event.getPlayer().getItemInHand().getEnchantments().get(Enchantment.LOOT_BONUS_BLOCKS) + 1;
+        }
         for (ItemStack drop : event.getBlock().getDrops(event.getPlayer().getItemInHand())) {
             for (int i = 0; i < fortune; i++) {
                 if (!BackpackManager.isBackpackItem(drop)) continue;

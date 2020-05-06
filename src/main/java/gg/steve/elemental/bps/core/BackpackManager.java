@@ -138,10 +138,99 @@ public class BackpackManager {
                 Backpacks.getNumberFormat().format(petBoostAmount));
     }
 
+    public static void sellGroupAmount(BackpackPlayer player, String group, int amount) {
+        int amountSold = 0;
+        int petProcAmount = 0;
+        double petBoostAmount = 0;
+        double totalDeposit = 0;
+        Backpack backpack = player.getBackpack();
+        Player bPlayer = player.getPlayer().getPlayer();
+        boolean petActive = PetApi.isPetActive(bPlayer, PetType.MONEY);
+        PetRarity rarity = null;
+        double boostPercent = PetApi.getBoostAmount(PetType.MONEY) - 1;
+        if (petActive) {
+            rarity = PetApi.getPetRarity(bPlayer, PetType.MONEY);
+        }
+        if (group.equalsIgnoreCase("all")) {
+            for (UUID id : backpack.getContents().keySet()) {
+                if (!backpack.hasItem(id) || backpack.getAmount(id) == 0) continue;
+                if (backpack.getAmount(id) > amount) {
+                    amountSold += amount;
+                    if (petActive && PetApi.isProcing(PetApi.getActivePet(bPlayer, PetType.MONEY), rarity)) {
+                        petProcAmount++;
+                        int sold = backpack.getAmount(id);
+                        double deposit = sellItem(id, player, basePrices.get(id), PetApi.getBoostAmount(PetType.MONEY), amount);
+                        petBoostAmount += (deposit - (basePrices.get(id) * sold));
+                        totalDeposit += deposit;
+                    } else {
+                        totalDeposit += sellItem(id, player, basePrices.get(id), 1, amount);
+                    }
+                } else {
+                    amount -= backpack.getAmount(id);
+                    amountSold += backpack.getAmount(id);
+                    if (petActive && PetApi.isProcing(PetApi.getActivePet(bPlayer, PetType.MONEY), rarity)) {
+                        petProcAmount++;
+                        int sold = backpack.getAmount(id);
+                        double deposit = sellItem(id, player, basePrices.get(id), PetApi.getBoostAmount(PetType.MONEY));
+                        petBoostAmount += (deposit - (basePrices.get(id) * sold));
+                        totalDeposit += deposit;
+                    } else {
+                        totalDeposit += sellItem(id, player, basePrices.get(id), 1);
+                    }
+                }
+            }
+        } else {
+            for (UUID id : groupPrices.get(group).keySet()) {
+                if (backpack.getAmount(id) > amount) {
+                    amountSold += amount;
+                    if (petActive && PetApi.isProcing(PetApi.getActivePet(bPlayer, PetType.MONEY), rarity)) {
+                        petProcAmount++;
+                        int sold = backpack.getAmount(id);
+                        double deposit = sellItem(id, player, groupPrices.get(group).get(id), PetApi.getBoostAmount(PetType.MONEY), amount);
+                        petBoostAmount += (deposit - (groupPrices.get(group).get(id) * sold));
+                        totalDeposit += deposit;
+                    } else {
+                        totalDeposit += sellItem(id, player, groupPrices.get(group).get(id), 1, amount);
+                    }
+                } else {
+                    amount -= backpack.getAmount(id);
+                    amountSold += backpack.getAmount(id);
+                    if (petActive && PetApi.isProcing(PetApi.getActivePet(bPlayer, PetType.MONEY), rarity)) {
+                        petProcAmount++;
+                        int sold = backpack.getAmount(id);
+                        double deposit = sellItem(id, player, groupPrices.get(group).get(id), PetApi.getBoostAmount(PetType.MONEY));
+                        petBoostAmount += (deposit - (groupPrices.get(group).get(id) * sold));
+                        totalDeposit += deposit;
+                    } else {
+                        totalDeposit += sellItem(id, player, groupPrices.get(group).get(id), 1);
+                    }
+                }
+            }
+        }
+        MessageType.SELL_ITEMS.message(player.getPlayer().getPlayer(),
+                Backpacks.getNumberFormat().format(amountSold),
+                Backpacks.getNumberFormat().format(totalDeposit),
+                Backpacks.getNumberFormat().format(boostPercent * 100),
+                Backpacks.getNumberFormat().format(petProcAmount),
+                Backpacks.getNumberFormat().format(petBoostAmount));
+    }
+
     public static double sellItem(UUID id, BackpackPlayer player, double price, double boost) {
         Backpack backpack = player.getBackpack();
         double deposit = (backpack.getAmount(id) * price) * boost;
         backpack.remove(id, backpack.getAmount(id));
+        if (Backpacks.eco() != null) {
+            Backpacks.eco().depositPlayer(player.getPlayer(), deposit);
+        } else {
+            LogUtil.warning("No amount was deposited because there isn't an economy.");
+        }
+        return deposit;
+    }
+
+    public static double sellItem(UUID id, BackpackPlayer player, double price, double boost, int amount) {
+        Backpack backpack = player.getBackpack();
+        double deposit = (amount * price) * boost;
+        backpack.remove(id, amount);
         if (Backpacks.eco() != null) {
             Backpacks.eco().depositPlayer(player.getPlayer(), deposit);
         } else {

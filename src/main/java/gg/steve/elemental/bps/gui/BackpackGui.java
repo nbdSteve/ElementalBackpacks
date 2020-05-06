@@ -60,7 +60,7 @@ public class BackpackGui extends AbstractGui {
         if (TokensApi.getInstance() != null) {
             TokenPlayer tokenPlayer = TokensApi.getTokenPlayer(this.player.getPlayer().getUniqueId());
             if (tokenPlayer.getTokens(TokenType.TOKEN) < cost) {
-                MessageType.INSUFFICIENT_FUNDS.message(this.player.getPlayer().getPlayer());
+                MessageType.INSUFFICIENT_TOKENS.message(this.player.getPlayer().getPlayer(), TokenType.TOKEN.name());
                 return;
             } else {
                 tokenPlayer.removeTokens(TokenType.TOKEN, cost);

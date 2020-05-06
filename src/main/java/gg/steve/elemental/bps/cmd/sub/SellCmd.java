@@ -44,7 +44,7 @@ public class SellCmd {
 
     public static void consoleSell(CommandSender sender, String[] args) {
         // /pack sell nbdsteve all
-        if (args.length != 3) {
+        if (args.length != 3 && args.length != 4) {
             CommandDebug.INVALID_NUMBER_OF_ARGUMENTS.message(sender);
             return;
         }
@@ -61,6 +61,10 @@ public class SellCmd {
             }
         }
         BackpackPlayer player = PlayerBackpackManager.getBackpackPlayer(target.getUniqueId());
+        if (args.length == 4) {
+            BackpackManager.sellGroupAmount(player, group, Integer.parseInt(args[3]));
+            return;
+        }
         BackpackManager.sellGroup(player, group);
     }
 }

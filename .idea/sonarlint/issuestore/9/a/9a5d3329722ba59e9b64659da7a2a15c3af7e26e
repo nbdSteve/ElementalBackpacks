@@ -1,9 +1,11 @@
 
-R
-java:S1874S"5Remove this use of "getDurability"; it is deprecated.(¿ó˜Õ8õ´¹ü›.
 L
 java:S18749"/Remove this use of "getData"; it is deprecated.(¼«Œè8õ´¹ü›.
 n
 java:S3776["RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(³Î‚s8Å»şó.
+u
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 43 to the 15 allowed.(ÈÍâùşÿÿÿÿ8Ûí¶Õ.
+R
+java:S1874S"5Remove this use of "getDurability"; it is deprecated.(¿ó˜Õ8õ´¹ü›.
 \
 java:S1118":Add a private constructor to hide the implicit public one.(·¾”Õùÿÿÿÿ8êùÆ÷›.

@@ -1,12 +1,9 @@
 
-X	java:S125?"<This block of commented-out lines of code should be removed.(‰â¯µ8Ø‹«÷›.
-W
-java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º8Õ¢†ı›.
 M
-java:S1874"0Remove this use of "setOwner"; it is deprecated.(ø£¦ß8’š–ı›.
+java:S1874"0Remove this use of "setOwner"; it is deprecated.(ø£¦ß8’š–ı›.
+W
+java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º8Õ¢†ı›.
 R
-java:S1874"0Remove this use of "setOwner"; it is deprecated.(¾€°˜üÿÿÿÿ8Õ¢†ı›.
-X	java:S1258"<This block of commented-out lines of code should be removed.(‰â¯µ8Ø‹«÷›.
-X	java:S125'"<This block of commented-out lines of code should be removed.(ó°›£8Ø‹«÷›.
+java:S1874"0Remove this use of "setOwner"; it is deprecated.(¾€°˜üÿÿÿÿ8Õ¢†ı›.
 i
-java:S1192"GDefine a constant instead of duplicating this literal ".owner" 3 times.(ºê•ùÿÿÿÿ8’š–ı›.
+java:S1192"GDefine a constant instead of duplicating this literal ".owner" 3 times.(ºê•ùÿÿÿÿ8’š–ı›.
