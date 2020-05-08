@@ -3,6 +3,7 @@ package gg.steve.elemental.bps.player;
 import gg.steve.elemental.bps.core.Backpack;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -30,8 +31,12 @@ public class BackpackPlayer {
         this.backpack = new Backpack(owner);
     }
 
-    public OfflinePlayer getPlayer() {
+    public OfflinePlayer getOfflinePlayer() {
         return Bukkit.getOfflinePlayer(this.owner);
+    }
+
+    public Player getPlayer() {
+        return Bukkit.getPlayer(this.owner);
     }
 
     public UUID getOwner() {

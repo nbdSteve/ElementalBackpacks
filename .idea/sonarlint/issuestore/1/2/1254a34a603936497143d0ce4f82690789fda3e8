@@ -1,7 +1,7 @@
 
 E
-java:S1148$"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8úÂ™ı›.
+java:S1148%"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8úÂ™ı›.
 Q
-java:S2864i"4Iterate over the "entrySet" instead of the "keySet".(ßŒŠª8ì“¬ø›.
+java:S2864j"4Iterate over the "entrySet" instead of the "keySet".(ßŒŠª8ì“¬ø›.
 g
-java:S1192,"JDefine a constant instead of duplicating this literal "contents." 3 times.(—üËù8Ì³êø›.
+java:S1192-"JDefine a constant instead of duplicating this literal "contents." 3 times.(—üËù8Ì³êø›.

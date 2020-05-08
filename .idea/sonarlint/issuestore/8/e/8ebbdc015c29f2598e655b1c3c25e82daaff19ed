@@ -1,5 +1,5 @@
 
-L
-java:S1066:"/Merge this if statement with the enclosing one.(ƒï©î8Ã´îò.
 \
-java:S1118":Add a private constructor to hide the implicit public one.(ˆŞ¾ùÿÿÿÿÿ8Ú™å¡œ.
+java:S1118":Add a private constructor to hide the implicit public one.(ˆŞ¾ùÿÿÿÿÿ8Ú™å¡œ.
+L
+java:S1066;"/Merge this if statement with the enclosing one.(ƒï©î8Ã´îò.

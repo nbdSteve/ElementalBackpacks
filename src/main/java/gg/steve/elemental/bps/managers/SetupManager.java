@@ -3,6 +3,7 @@ package gg.steve.elemental.bps.managers;
 import gg.steve.elemental.bps.Backpacks;
 import gg.steve.elemental.bps.cmd.PackCmd;
 import gg.steve.elemental.bps.gui.GuiClickListener;
+import gg.steve.elemental.bps.listener.BackpackSellListener;
 import gg.steve.elemental.bps.listener.PlayerBlockBreakListener;
 import gg.steve.elemental.bps.player.PlayerBackpackManager;
 import org.bukkit.plugin.Plugin;
@@ -43,5 +44,6 @@ public class SetupManager {
         pm.registerEvents(new PlayerBackpackManager(), instance);
         pm.registerEvents(new GuiClickListener(), instance);
         pm.registerEvents(new PlayerBlockBreakListener(), instance);
+        pm.registerEvents(new BackpackSellListener(), instance);
     }
 }

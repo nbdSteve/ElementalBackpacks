@@ -14,6 +14,8 @@ public enum MessageType {
     INCREASE_CAPACITY("increase-capacity", "{amount}", "{total-capacity}"),
     BACKPACK_FULL("backpack-full", "{total-capacity}"),
     SELL_ITEMS("sell-items", "{items-sold}", "{deposit}", "{booster}", "{times-proced}", "{booster-amount}"),
+    BUSTER_SELL_ITEMS("buster-sell-items", "{items-sold}", "{deposit}", "{booster}", "{times-proced}", "{booster-amount}"),
+    MERCHANT_SELL_ITEMS("merchant-sell-items", "{items-sold}", "{deposit}", "{booster}", "{times-proced}", "{booster-amount}"),
     INSUFFICIENT_TOKENS("insufficient-tokens", "{token-type}");
 
     private String path;

@@ -21,3 +21,21 @@ sell-items:
   - '&bMoney Made: &f{deposit} ⛁'
   - ''
   - '&b&m-----------'
+
+buster-sell-items:
+  - '&6&lBackpack Buster Sale:'
+  - ''
+  - '&6Total items sold&7| &e{items-sold}'
+  - '&6Booster &f+{booster}% x{times-proced}&7| &e{booster-amount} ⛁'
+  - '&6Money Made&}7| &e{deposit} ⛁'
+  - ''
+  - '&6&m-----------'
+
+merchant-sell-items:
+  - '&6&lMerchant Buster Sale: &7&o((Items sold for double price))'
+  - ''
+  - '&6Total items sold&7| &e{items-sold}'
+  - '&6Booster &f+{booster}% x{times-proced}&7| &e{booster-amount} ⛁'
+  - '&6Money Made&}7| &e{deposit} ⛁'
+  - ''
+  - '&6&m-----------'

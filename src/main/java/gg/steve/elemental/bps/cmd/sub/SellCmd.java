@@ -1,6 +1,7 @@
 package gg.steve.elemental.bps.cmd.sub;
 
 import gg.steve.elemental.bps.core.BackpackManager;
+import gg.steve.elemental.bps.event.SellMethodType;
 import gg.steve.elemental.bps.message.CommandDebug;
 import gg.steve.elemental.bps.permission.PermissionNode;
 import gg.steve.elemental.bps.player.BackpackPlayer;
@@ -38,13 +39,13 @@ public class SellCmd {
             }
         }
         BackpackPlayer player = PlayerBackpackManager.getBackpackPlayer(((Player) sender).getUniqueId());
-        BackpackManager.sellGroup(player, group);
+        BackpackManager.sellBackpack(player.getBackpack(), group, SellMethodType.COMMAND);
     }
 
 
     public static void consoleSell(CommandSender sender, String[] args) {
         // /pack sell nbdsteve all
-        if (args.length != 3 && args.length != 4) {
+        if (args.length != 3 && args.length != 5) {
             CommandDebug.INVALID_NUMBER_OF_ARGUMENTS.message(sender);
             return;
         }
@@ -61,10 +62,10 @@ public class SellCmd {
             }
         }
         BackpackPlayer player = PlayerBackpackManager.getBackpackPlayer(target.getUniqueId());
-        if (args.length == 4) {
-            BackpackManager.sellGroupAmount(player, group, Integer.parseInt(args[3]));
+        if (args.length == 5) {
+            BackpackManager.sellBackpack(player.getBackpack(), group, Integer.parseInt(args[3]), SellMethodType.COMMAND);
             return;
         }
-        BackpackManager.sellGroup(player, group);
+        BackpackManager.sellBackpack(player.getBackpack(), group, SellMethodType.COMMAND);
     }
 }

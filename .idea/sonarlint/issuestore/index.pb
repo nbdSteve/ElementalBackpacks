@@ -87,3 +87,11 @@ j
 :src/main/java/gg/steve/elemental/bps/api/BackpacksApi.java,9\c\9c3b1385ef8cbc3c8cae1e6bdbce8e44b3c18702
 t
 Dsrc/main/java/gg/steve/elemental/bps/nbt/utils/MinecraftVersion.java,d\7\d7d33a176208bd4f3098c6cf0cff98a26c0b2bef
+n
+>src/main/java/gg/steve/elemental/bps/event/SellMethodType.java,b\0\b056211cf169d4fbc87101c69ea9f50e75b8c9a9
+q
+Asrc/main/java/gg/steve/elemental/bps/event/BackpackSellEvent.java,e\0\e01aebd541ce1b21e8802fa0612a9450b747ea1e
+w
+Gsrc/main/java/gg/steve/elemental/bps/listener/BackpackSellListener.java,4\2\426f90e08da14eba231809996c51312b21aab189
+t
+Dsrc/main/java/gg/steve/elemental/bps/event/PreBackpackSaleEvent.java,6\f\6f7f92672dbf693e5ddf5f1fef0b1bff421e72bf

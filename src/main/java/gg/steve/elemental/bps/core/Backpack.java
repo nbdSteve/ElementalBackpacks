@@ -3,6 +3,7 @@ package gg.steve.elemental.bps.core;
 import gg.steve.elemental.bps.core.exception.LoadBackpackFullException;
 import gg.steve.elemental.bps.gui.BackpackGui;
 import gg.steve.elemental.bps.managers.ConfigManager;
+import gg.steve.elemental.bps.player.BackpackPlayer;
 import gg.steve.elemental.bps.player.PlayerBackpackManager;
 import gg.steve.elemental.bps.utils.LogUtil;
 import org.bukkit.entity.Player;
@@ -118,6 +119,10 @@ public class Backpack {
 
     public boolean hasItem(UUID id) {
         return contents.containsKey(id);
+    }
+
+    public BackpackPlayer getPlayer() {
+        return PlayerBackpackManager.getBackpackPlayer(this.owner);
     }
 
     public int getLifetimeAmount() {
