@@ -1,19 +1,19 @@
 
-W
-java:S1128"5Remove this unused import 'org.bukkit.entity.Player'.(Î©Øüúÿÿÿÿ8Ó¥œŸ.
-f
-java:S1128	"IRemove this unused import 'gg.steve.elemental.bps.player.BackpackPlayer'.(„Õ®¬8Ó¥œŸ.
-L
-java:S1874<"/Remove this use of "getData"; it is deprecated.(¼«Œè8õ´¹ü›.
 d
 java:S1128"GRemove this unused import 'gg.steve.elemental.bps.message.MessageType'.(¬Â„8Ó¥œŸ.
+f
+java:S1128	"IRemove this unused import 'gg.steve.elemental.bps.player.BackpackPlayer'.(„Õ®¬8Ó¥œŸ.
+m
+java:S1128"KRemove this unused import 'gg.steve.elemental.bps.event.BackpackSellEvent'.(¨£æ›øÿÿÿÿ8—şÔ‘Ÿ.
 b
 java:S1128"ERemove this unused import 'gg.steve.elemental.pets.rarity.PetRarity'.(Ö«úû8Ó¥œŸ.
 \
 java:S1118":Add a private constructor to hide the implicit public one.(·¾”Õùÿÿÿÿ8êùÆ÷›.
-_
-java:S1128"=Remove this unused import 'gg.steve.elemental.bps.Backpacks'.(ÈøœÄùÿÿÿÿ8Ó¥œŸ.
 R
 java:S1874V"5Remove this use of "getDurability"; it is deprecated.(¿ó˜Õ8õ´¹ü›.
-m
-java:S1128"KRemove this unused import 'gg.steve.elemental.bps.event.BackpackSellEvent'.(¨£æ›øÿÿÿÿ8—şÔ‘Ÿ.
+_
+java:S1128"=Remove this unused import 'gg.steve.elemental.bps.Backpacks'.(ÈøœÄùÿÿÿÿ8Ó¥œŸ.
+W
+java:S1128"5Remove this unused import 'org.bukkit.entity.Player'.(Î©Øüúÿÿÿÿ8Ó¥œŸ.
+L
+java:S1874<"/Remove this use of "getData"; it is deprecated.(¼«Œè8õ´¹ü›.

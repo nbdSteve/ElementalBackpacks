@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class GuiClickListener implements Listener {
@@ -19,6 +20,7 @@ public class GuiClickListener implements Listener {
     @EventHandler
     public void guiItemClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
+        if (event.getInventory().getType().equals(InventoryType.PLAYER)) return;
         if (AbstractGui.openInventories.get(player.getUniqueId()) != null) {
             event.setCancelled(true);
             if (event.getCurrentItem() == null || event.getCurrentItem().getType().equals(Material.AIR)) return;

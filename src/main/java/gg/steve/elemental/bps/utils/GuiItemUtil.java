@@ -4,8 +4,10 @@ import gg.steve.elemental.bps.Backpacks;
 import gg.steve.elemental.bps.core.Backpack;
 import gg.steve.elemental.tokens.api.TokensApi;
 import gg.steve.elemental.tokens.core.TokenType;
+import me.arcaniax.hdb.api.HeadDatabaseAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
@@ -14,7 +16,13 @@ import java.util.UUID;
 public class GuiItemUtil {
 
     public static ItemStack createItem(ConfigurationSection section, String entry, Backpack backpack) {
-        ItemBuilderUtil builder = new ItemBuilderUtil(section.getString(entry + ".item"), section.getString(entry + ".data"));
+        ItemBuilderUtil builder;
+        if (section.getString(entry + ".material").startsWith("hdb")) {
+            String[] parts = section.getString(entry + ".material").split("-");
+            builder = new ItemBuilderUtil(new HeadDatabaseAPI().getItemHead(parts[1]));
+        } else {
+            builder = new ItemBuilderUtil(section.getString(entry + ".material"), section.getString(entry + ".data"));
+        }
         if (section.getString(entry + ".owner") != null) {
             SkullMeta meta = (SkullMeta) builder.getItemMeta();
             if (section.getString(entry + ".owner").equalsIgnoreCase("owner")) {

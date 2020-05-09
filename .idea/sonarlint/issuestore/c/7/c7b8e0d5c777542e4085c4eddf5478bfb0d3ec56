@@ -1,13 +1,13 @@
 
-g
-java:S1192"JDefine a constant instead of duplicating this literal "{deposit}" 3 times.(èÕ«°8ò¿ŞŸ.
-g
-java:S1192"JDefine a constant instead of duplicating this literal "{booster}" 3 times.(èÕ«°8ò¿ŞŸ.
-R
-java:S3066"<Lower the visibility of this setter or remove it altogether.(ÇşüØ
-n
-java:S1192"QDefine a constant instead of duplicating this literal "{booster-amount}" 3 times.(èÕ«°8ò¿ŞŸ.
 j
 java:S1192"MDefine a constant instead of duplicating this literal "{items-sold}" 3 times.(èÕ«°8ò¿ŞŸ.
 l
 java:S1192"ODefine a constant instead of duplicating this literal "{times-proced}" 3 times.(èÕ«°8ò¿ŞŸ.
+g
+java:S1192"JDefine a constant instead of duplicating this literal "{deposit}" 3 times.(èÕ«°8ò¿ŞŸ.
+n
+java:S1192"QDefine a constant instead of duplicating this literal "{booster-amount}" 3 times.(èÕ«°8ò¿ŞŸ.
+R
+java:S3066"<Lower the visibility of this setter or remove it altogether.(ÇşüØ
+g
+java:S1192"JDefine a constant instead of duplicating this literal "{booster}" 3 times.(èÕ«°8ò¿ŞŸ.

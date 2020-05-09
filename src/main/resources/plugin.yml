@@ -6,7 +6,11 @@ authors: [stevegoodhill]
 description: Virtual backpacks plugin for ElementalMC
 depend:
   - Pets
+  - ElementalTokens
+softdepend:
+  - Featherboard
   - PlaceholderAPI
+  - HeadDatabase
 commands:
   pack:
     usage: /<command>

@@ -6,6 +6,7 @@ import gg.steve.elemental.bps.message.MessageType;
 import gg.steve.elemental.bps.permission.PermissionNode;
 import gg.steve.elemental.bps.player.BackpackPlayer;
 import gg.steve.elemental.bps.utils.GuiItemUtil;
+import gg.steve.elemental.tokens.ElementalTokens;
 import gg.steve.elemental.tokens.api.TokensApi;
 import gg.steve.elemental.tokens.core.TokenPlayer;
 import gg.steve.elemental.tokens.core.TokenType;
@@ -40,6 +41,10 @@ public class BackpackGui extends AbstractGui {
                         break;
                     case "close":
                         player1.closeInventory();
+                        break;
+                    case "back":
+                        player1.closeInventory();
+                        ElementalTokens.openShopGui(player1);
                         break;
                     default:
                         player1.closeInventory();

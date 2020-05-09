@@ -5,87 +5,6 @@ created-format: "'&6'dd'&e'/'&6'MM'&e'/'&6'yyyy '&7at' '&6'HH'&e':'&6'mm'&e':'&6
 #
 starting-capacity: 2500
 #
-gui:
-  name: "&5&l{player}'s Backpack"
-  type: hopper
-  size: 5
-  1:
-    slot: 0
-    action: none
-    name: '&6&lBACKPACK STATS'
-    item: skull_item
-    owner: owner
-    data: 3
-    lore:
-      - ''
-      - '&f&lAmount Filled&7| &6{amount-filled}'
-      - '&f&lMax Capacity&7| &6{capacity}'
-      - '&f&lLifetime Amount&7| &6{lifetime-amount}'
-      - '&f&lCreated&7| {created}'
-      - ''
-      - '&7&o((Backpack UUID: {uuid}))'
-    enchantments:
-    item-flags:
-      - hide_attributes
-  2:
-    slot: 1
-    action: 100
-    name: '&f&l+100'
-    item: stained_glass_pane
-    data: 5
-    lore:
-      - ''
-      - '&7Increase your backpacks capacity by 100.'
-      - ''
-      - '&5Upgrade&f| &d{balance}&7/&d50 &aTokens'
-    enchantments:
-    item-flags:
-      - hide_attributes
-    cost: 50
-  3:
-    slot: 2
-    action: 1000
-    name: '&f&l+1,000'
-    item: stained_glass_pane
-    data: 5
-    lore:
-      - ''
-      - '&7Increase your backpacks capacity by 1,000.'
-      - ''
-      - '&5Upgrade&f| &d{balance}&7/&d500 &aTokens'
-    enchantments:
-    item-flags:
-      - hide_attributes
-    cost: 500
-  4:
-    slot: 3
-    action: 10000
-    name: '&f&l+10,000'
-    item: stained_glass_pane
-    data: 5
-    lore:
-      - ''
-      - '&7Increase your backpacks capacity by 10,000.'
-      - ''
-      - '&5Upgrade&f| &d{balance}&7/&d5000 &aTokens'
-    enchantments:
-    item-flags:
-      - hide_attributes
-    cost: 5000
-  5:
-    slot: 4
-    action: close
-    name: '&c&lExit'
-    item: barrier
-    data: 0
-    lore:
-      - '&7'
-      - '&7&o((left click to close this gui))'
-      - '&7'
-    enchantments:
-    item-flags:
-      - hide_attributes
-#
 backpack-items:
   # syntax: material_name:byte_data:item_uuid (defined by you):price
   - coal_ore:0:5d9df2b2-b0e7-431f-b358-35162a76ad22:3.04
@@ -101,8 +20,333 @@ backpack-items:
   - emerald_ore:0:e92b5b03-9b0d-47c1-84e4-e9aa1cb724ab:30.12
   - emerald:0:7088d449-e8ff-46a3-ac54-4bec67bf6874:30.12
   - emerald_block:0:ca84bbb2-0b2b-4b81-9094-21dc5c22784b:120.12
-
+#
 sell-groups:
   example:
     3666d526-f538-4740-880d-a7e47ce0d161:
       price: 12.02
+#
+gui:
+  name: "&b&l{player}'s BACKPACK"
+  type: none
+  size: 27
+  1:
+    slot: 11
+    action: none
+    name: '&b&lBACKPACK STATS'
+    material: skull_item
+    owner: owner
+    data: 3
+    lore:
+      - ''
+      - '&5Amount Filled&7| &d{amount-filled}'
+      - '&5Max Capacity&7| &d{capacity}'
+      - '&5Lifetime Amount&7| &d{lifetime-amount}'
+      - '&5Created&7| {created}'
+      - ''
+      - '&7&o(({uuid}))'
+    enchantments:
+    item-flags:
+      - hide_attributes
+  2:
+    slot: 13
+    action: 100
+    name: '&a&l+100 LEVELS'
+    material: hdb-2265
+    data: 0
+    lore:
+      - ''
+      - '&7Increase your backpacks capacity by 100 levels.'
+      - ''
+      - '&5Upgrade&f| &d{balance}&7/&d10 &aTokens'
+    enchantments:
+    item-flags:
+      - hide_attributes
+    cost: 10
+  3:
+    slot: 14
+    action: 1000
+    name: '&a&l+1,000 LEVELS LEVELS'
+    material: hdb-17445
+    data: 0
+    lore:
+      - ''
+      - '&7Increase your backpacks capacity by 1,000 levels.'
+      - ''
+      - '&5Upgrade&f| &d{balance}&7/&d100 &aTokens'
+    enchantments:
+    item-flags:
+      - hide_attributes
+    cost: 100
+  4:
+    slot: 15
+    action: 10000
+    name: '&a&l+10,000 LEVELS'
+    material: hdb-33383
+    data: 0
+    lore:
+      - ''
+      - '&7Increase your backpacks capacity by 10,000 levels.'
+      - ''
+      - '&5Upgrade&f| &d{balance}&7/&d1,000 &aTokens'
+    enchantments:
+    item-flags:
+      - hide_attributes
+    cost: 1000
+  5:
+    slot: 25
+    action: back
+    name: '&c&lBack'
+    material: hdb-7789
+    data: 0
+    lore:
+      - '&7'
+      - '&7&o((left click to return to the tshop gui))'
+      - '&7'
+    enchantments:
+    item-flags:
+      - hide_attributes
+  27:
+    slot: 26
+    action: close
+    name: '&c&lClose'
+    material: barrier
+    data: 0
+    lore:
+      - '&7'
+      - '&7&o((left click to close this gui))'
+      - '&7'
+    enchantments:
+    item-flags:
+      - hide_attributes
+  6:
+    slot: 0
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  7:
+    slot: 2
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  8:
+    slot: 4
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  9:
+    slot: 6
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  10:
+    slot: 8
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  11:
+    slot: 10
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  12:
+    slot: 12
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  13:
+    slot: 16
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  14:
+    slot: 18
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  15:
+    slot: 20
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  16:
+    slot: 22
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  17:
+    slot: 24
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 10
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  18:
+    slot: 1
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  19:
+    slot: 3
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  20:
+    slot: 5
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  21:
+    slot: 7
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  22:
+    slot: 9
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  23:
+    slot: 17
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  24:
+    slot: 19
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  25:
+    slot: 21
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
+  26:
+    slot: 23
+    action: none
+    name: '&7'
+    material: stained_glass_pane
+    data: 0
+    lore:
+      - ''
+    enchantments:
+    item-flags:
+      - hide_attributes
