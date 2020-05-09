@@ -1,14 +1,14 @@
 
-W
-java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º8Õ¢†ı›.
-M
-java:S1874"0Remove this use of "setOwner"; it is deprecated.(ø£¦ß8’š–ı›.
+R
+java:S1874"0Remove this use of "setOwner"; it is deprecated.(¾€°˜üÿÿÿÿ8Õ¢†ı›.
 U
 java:S1128
 "3Remove this unused import 'org.bukkit.entity.Item'.(ıõç½øÿÿÿÿ8ïöœ¿Ÿ.
-R
-java:S1874"0Remove this use of "setOwner"; it is deprecated.(¾€°˜üÿÿÿÿ8Õ¢†ı›.
-l
-java:S1192"JDefine a constant instead of duplicating this literal ".material" 3 times.(ì¾¾ûÿÿÿÿ8ïöœ¿Ÿ.
+W
+java:S1118":Add a private constructor to hide the implicit public one.(Üâ§º8Õ¢†ı›.
 i
 java:S1192"GDefine a constant instead of duplicating this literal ".owner" 3 times.(ºê•ùÿÿÿÿ8’š–ı›.
+l
+java:S1192"JDefine a constant instead of duplicating this literal ".material" 3 times.(ì¾¾ûÿÿÿÿ8ïöœ¿Ÿ.
+M
+java:S1874"0Remove this use of "setOwner"; it is deprecated.(ø£¦ß8’š–ı›.

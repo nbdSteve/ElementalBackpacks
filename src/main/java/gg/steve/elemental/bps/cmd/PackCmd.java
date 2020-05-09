@@ -17,27 +17,27 @@ public class PackCmd implements CommandExecutor {
                 GuiCmd.gui(sender);
                 return true;
             }
-        }
-        switch (args[0].toLowerCase()) {
-            case "h":
-            case "help":
-                HelpCmd.help(sender);
-                break;
-            case "r":
-            case "reload":
-                ReloadCmd.reload(sender);
-                break;
-            case "gui":
-            case "m":
-            case "menu":
-                GuiCmd.gui(sender);
-                break;
-            case "sell":
-                SellCmd.sell(sender, args);
-                break;
-            default:
-                CommandDebug.INVALID_COMMAND.message(sender);
-                break;
+            switch (args[0].toLowerCase()) {
+                case "h":
+                case "help":
+                    HelpCmd.help(sender);
+                    break;
+                case "r":
+                case "reload":
+                    ReloadCmd.reload(sender);
+                    break;
+                case "gui":
+                case "m":
+                case "menu":
+                    GuiCmd.gui(sender);
+                    break;
+                case "sell":
+                    SellCmd.sell(sender, args);
+                    break;
+                default:
+                    CommandDebug.INVALID_COMMAND.message(sender);
+                    break;
+            }
         }
         return true;
     }

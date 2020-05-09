@@ -1,5 +1,7 @@
 package gg.steve.elemental.bps.listener;
 
+import gg.steve.elemental.booster.api.BoostersApi;
+import gg.steve.elemental.booster.core.BoosterType;
 import gg.steve.elemental.bps.Backpacks;
 import gg.steve.elemental.bps.core.BackpackManager;
 import gg.steve.elemental.bps.event.BackpackSellEvent;
@@ -31,7 +33,12 @@ public class BackpackSellListener implements Listener {
         int amountSold = 0, petProcAmount = 0;
         double petBoostAmount = 0, totalDeposit = 0;
         PetRarity rarity = null;
-        if (event.getPet() != null) rarity = PetApi.getPetRarity(event.getOwner().getPlayer(), PetType.MONEY);
+        double overallBoost = 0;
+        if (event.getPet() != null) {
+            rarity = PetApi.getPetRarity(event.getOwner().getPlayer(), PetType.MONEY);
+            overallBoost += PetApi.getBoostAmount(PetType.MONEY) - 1;
+        }
+        overallBoost += BoostersApi.getBoostAmount(event.getOwner().getPlayer(), BoosterType.SELL);
         for (UUID id : event.getBackpack().getContents().keySet()) {
             for (int i = 1; i <= event.getBackpack().getAmount(id); i++) {
                 if (event.getAmountToSell() != -1 && amountSold >= event.getAmountToSell()) {
@@ -44,6 +51,7 @@ public class BackpackSellListener implements Listener {
                     boost = PetApi.getBoostAmount(PetType.MONEY);
                     petProcAmount++;
                 }
+                boost += BoostersApi.getBoostAmount(event.getOwner().getPlayer(), BoosterType.SELL);
                 petBoostAmount += BackpackManager.getItemPrice(event.getGroup(), id) * boost - BackpackManager.getItemPrice(event.getGroup(), id);
                 totalDeposit += BackpackManager.getItemPrice(event.getGroup(), id) * boost;
             }
@@ -62,21 +70,21 @@ public class BackpackSellListener implements Listener {
             MessageType.SELL_ITEMS.message(event.getOwner().getPlayer(),
                     Backpacks.getNumberFormat().format(amountSold),
                     Backpacks.getNumberFormat().format(totalDeposit),
-                    Backpacks.getNumberFormat().format((PetApi.getBoostAmount(PetType.MONEY) - 1) * 100),
+                    Backpacks.getNumberFormat().format(overallBoost * 100),
                     Backpacks.getNumberFormat().format(petProcAmount),
                     Backpacks.getNumberFormat().format(petBoostAmount));
         } else if (event.getSellMethod().equals(SellMethodType.BUSTER)) {
             MessageType.BUSTER_SELL_ITEMS.message(event.getOwner().getPlayer(),
                     Backpacks.getNumberFormat().format(amountSold),
                     Backpacks.getNumberFormat().format(totalDeposit),
-                    Backpacks.getNumberFormat().format((PetApi.getBoostAmount(PetType.MONEY) - 1) * 100),
+                    Backpacks.getNumberFormat().format(overallBoost * 100),
                     Backpacks.getNumberFormat().format(petProcAmount),
                     Backpacks.getNumberFormat().format(petBoostAmount));
         } else if (event.getSellMethod().equals(SellMethodType.MERCHANT)) {
             MessageType.MERCHANT_SELL_ITEMS.message(event.getOwner().getPlayer(),
                     Backpacks.getNumberFormat().format(amountSold),
                     Backpacks.getNumberFormat().format(totalDeposit),
-                    Backpacks.getNumberFormat().format((PetApi.getBoostAmount(PetType.MONEY) - 1) * 100),
+                    Backpacks.getNumberFormat().format(overallBoost * 100),
                     Backpacks.getNumberFormat().format(petProcAmount),
                     Backpacks.getNumberFormat().format(petBoostAmount));
         }

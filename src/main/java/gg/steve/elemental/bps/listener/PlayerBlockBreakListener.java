@@ -1,5 +1,6 @@
 package gg.steve.elemental.bps.listener;
 
+import gg.steve.elemental.bps.Backpacks;
 import gg.steve.elemental.bps.core.Backpack;
 import gg.steve.elemental.bps.core.BackpackManager;
 import gg.steve.elemental.bps.managers.ConfigManager;
@@ -35,14 +36,14 @@ public class PlayerBlockBreakListener implements Listener {
             for (int i = 0; i < fortune; i++) {
                 if (!BackpackManager.isBackpackItem(drop)) continue;
                 if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
-                    MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
+                    MessageType.BACKPACK_FULL.message(event.getPlayer(), Backpacks.getNumberFormat().format(backpack.getCapacity()));
                     continue;
                 }
                 if (PetApi.isPetActive(event.getPlayer(), PetType.FORTUNE) &&
                         PetApi.isProcing(PetApi.getActivePet(event.getPlayer(), PetType.FORTUNE), PetApi.getPetRarity(event.getPlayer(), PetType.FORTUNE))) {
                     for (int y = 0; y < PetApi.getBoostAmount(PetType.FORTUNE); y++) {
                         if (!backpack.add(BackpackManager.getItemId(drop), drop.getAmount())) {
-                            MessageType.BACKPACK_FULL.message(event.getPlayer(), String.valueOf(backpack.getCapacity()));
+                            MessageType.BACKPACK_FULL.message(event.getPlayer(), Backpacks.getNumberFormat().format(backpack.getCapacity()));
                         }
                     }
                 }
