@@ -110,7 +110,7 @@ gui:
     slot: 26
     action: close
     name: '&c&lClose'
-    material: barrier
+    material: hdb-187
     data: 0
     lore:
       - '&7'

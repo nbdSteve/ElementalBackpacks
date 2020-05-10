@@ -47,8 +47,8 @@ public class BackpackGui extends AbstractGui {
                         ElementalTokens.openShopGui(player1);
                         break;
                     default:
-                        player1.closeInventory();
                         doCapacityUpgrade(section.getInt(entry + ".cost"), section.getInt(entry + ".action"));
+                        refresh();
                         break;
                 }
             });

@@ -6,6 +6,7 @@ import gg.steve.elemental.tokens.api.TokensApi;
 import gg.steve.elemental.tokens.core.TokenType;
 import me.arcaniax.hdb.api.HeadDatabaseAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
@@ -19,7 +20,11 @@ public class GuiItemUtil {
         ItemBuilderUtil builder;
         if (section.getString(entry + ".material").startsWith("hdb")) {
             String[] parts = section.getString(entry + ".material").split("-");
-            builder = new ItemBuilderUtil(new HeadDatabaseAPI().getItemHead(parts[1]));
+            try {
+                builder = new ItemBuilderUtil(new HeadDatabaseAPI().getItemHead(parts[1]));
+            } catch (NullPointerException e) {
+                builder = new ItemBuilderUtil(new ItemStack(Material.valueOf("SKULL_ITEM")));
+            }
         } else {
             builder = new ItemBuilderUtil(section.getString(entry + ".material"), section.getString(entry + ".data"));
         }

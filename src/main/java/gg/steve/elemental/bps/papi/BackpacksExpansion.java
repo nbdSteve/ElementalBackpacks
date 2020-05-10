@@ -57,6 +57,6 @@ public class BackpacksExpansion extends PlaceholderExpansion {
         if (identifier.equalsIgnoreCase("created")) {
             return bPlayer.getBackpack().getCreated();
         }
-        return null;
+        return "0";
     }
 }

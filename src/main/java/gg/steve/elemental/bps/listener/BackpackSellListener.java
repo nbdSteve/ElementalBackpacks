@@ -39,10 +39,12 @@ public class BackpackSellListener implements Listener {
             overallBoost += PetApi.getBoostAmount(PetType.MONEY) - 1;
         }
         overallBoost += BoostersApi.getBoostAmount(event.getOwner().getPlayer(), BoosterType.SELL);
+        boolean saleComplete = false;
         for (UUID id : event.getBackpack().getContents().keySet()) {
             for (int i = 1; i <= event.getBackpack().getAmount(id); i++) {
                 if (event.getAmountToSell() != -1 && amountSold >= event.getAmountToSell()) {
                     event.getBackpack().remove(id, i);
+                    saleComplete = true;
                     break;
                 }
                 amountSold++;
@@ -55,6 +57,7 @@ public class BackpackSellListener implements Listener {
                 petBoostAmount += BackpackManager.getItemPrice(event.getGroup(), id) * boost - BackpackManager.getItemPrice(event.getGroup(), id);
                 totalDeposit += BackpackManager.getItemPrice(event.getGroup(), id) * boost;
             }
+            if (saleComplete) break;
             event.getBackpack().remove(id, event.getBackpack().getAmount(id));
         }
         if (event.getSellMethod().equals(SellMethodType.MERCHANT)) {
