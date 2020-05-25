@@ -1,7 +1,7 @@
 #
 enable-backpacks: true
 #
-created-format: "'&6'dd'&e'/'&6'MM'&e'/'&6'yyyy '&7at' '&6'HH'&e':'&6'mm'&e':'&6'ss '&7'z" # This will get set in the backpack data file so do not change this once you have released the server
+created-format: "'&b'dd'&3'/'&b'MM'&3'/'&b'yyyy '&7at' '&b'HH'&3':'&b'mm'&3':'&b'ss '&7'z" # This will get set in the backpack data file so do not change this once you have released the server
 #
 starting-capacity: 2500
 #
@@ -22,9 +22,32 @@ backpack-items:
   - emerald_block:0:ca84bbb2-0b2b-4b81-9094-21dc5c22784b:120.12
 #
 sell-groups:
-  example:
-    3666d526-f538-4740-880d-a7e47ce0d161:
-      price: 12.02
+  a: 1.0
+  b: 1.1
+  c: 1.2
+  d: 1.3
+  e: 1.4
+  f: 1.5
+  g: 1.6
+  h: 1.7
+  i: 1.8
+  j: 1.9
+  k: 2.0
+  l: 2.1
+  m: 2.2
+  n: 2.3
+  o: 2.4
+  p: 2.5
+  q: 2.6
+  r: 2.7
+  s: 2.8
+  t: 2.9
+  u: 3.0
+  v: 3.1
+  w: 3.2
+  x: 3.3
+  y: 3.4
+  z: 3.5
 #
 gui:
   name: "&b&l{player}'s BACKPACK"
@@ -39,10 +62,10 @@ gui:
     data: 3
     lore:
       - ''
-      - '&5Amount Filled&7| &d{amount-filled}'
-      - '&5Max Capacity&7| &d{capacity}'
-      - '&5Lifetime Amount&7| &d{lifetime-amount}'
-      - '&5Created&7| {created}'
+      - '&3Amount Filled&7| &f&l{amount-filled}'
+      - '&3Max Capacity&7| &f&l{capacity}'
+      - '&3Lifetime Amount&7| &f&l{lifetime-amount}'
+      - '&3Created&7| {created}'
       - ''
       - '&7&o(({uuid}))'
     enchantments:
@@ -58,7 +81,7 @@ gui:
       - ''
       - '&7Increase your backpacks capacity by 100 levels.'
       - ''
-      - '&5Upgrade&f| &d{balance}&7/&d10 &aTokens'
+      - '&3Upgrade&f| &f{balance}&7/&f10 Tokens'
     enchantments:
     item-flags:
       - hide_attributes
@@ -73,7 +96,7 @@ gui:
       - ''
       - '&7Increase your backpacks capacity by 1,000 levels.'
       - ''
-      - '&5Upgrade&f| &d{balance}&7/&d100 &aTokens'
+      - '&3Upgrade&f| &f{balance}&7/&f100 Tokens'
     enchantments:
     item-flags:
       - hide_attributes
@@ -88,7 +111,7 @@ gui:
       - ''
       - '&7Increase your backpacks capacity by 10,000 levels.'
       - ''
-      - '&5Upgrade&f| &d{balance}&7/&d1,000 &aTokens'
+      - '&bUpgrade&f| &f{balance}&7/&f1,000 Tokens'
     enchantments:
     item-flags:
       - hide_attributes

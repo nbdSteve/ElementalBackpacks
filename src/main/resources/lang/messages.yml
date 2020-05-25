@@ -1,44 +1,45 @@
 reload:
-  - '&5&lBackpacks &f>> &7You have successfully reloaded the plugin.'
+  - '&b&lBackpacks &f» &7You have successfully reloaded the plugin.'
 
 help:
-  - '&5&lBackpacks &f>> &7Please contact nbdSteve#0583 on discord for command, permission and configuration help.'
+  - '&b&lBackpacks &f» &7Please contact nbdSteve#0583 on discord for command, permission and configuration help.'
 
 insufficient-tokens:
-  - '&5&lBackpacks &f>> &7You do not have enough &6{token-type} &7tokens to purchase that upgrade.'
+  - '&b&lBackpacks &f» &7You do not have enough &a{token-type} &7tokens to purchase that upgrade.'
 
 increase-capacity:
-  - '&5&lBackpacks &f>> &7Your backpack capacity has been increased by &6{amount}&7, total capacity is now &6{total-capacity} &7items.'
+  - '&b&lBackpacks &f» &7Your backpack capacity has been increased by &a{amount}&7, total capacity is now &a{total-capacity} &7items.'
 
 backpack-full:
-  - '&5&lBackpacks &f>> &7Your backpack is completely filled with &6{total-capacity} &7items, all items mined until you sell your backpack will be lost.'
+  - '&b&lBackpacks &f» &7Your backpack is completely filled with &a{total-capacity} &7items, all items mined until you sell your backpack will be lost.'
 
 sell-items:
-  - '&6&m-------------------'
-  - '&6&lBackpack  Sale:'
+  - '&b&m-------------------'
+  - '&b&lBackpack Sale &f»'
   - ''
-  - '&6Total items sold&7| &e{items-sold}'
-  - '&6Booster &5+{booster}% &dx {times-proced}&7| &e{booster-amount} ⛁'
-  - '&6Money Made&}7| &e{deposit} ⛁'
+  - '&3Total items sold&7| &b{items-sold}'
+  - '&3Booster &f+{booster}% x {times-proced}&7| &b{booster-amount} ⛁'
+  - '&3Money Made&}7| &b{deposit} ⛁'
   - ''
-  - '&6&m-------------------'
+  - '&b&m-------------------'
 
 buster-sell-items:
-  - '&6&m-------------------'
-  - '&6&lBackpack Buster Sale:'
+  - '&b&m-------------------'
+  - '&b&lBackpack Buster Sale &f»'
   - ''
-  - '&6Total items sold&7| &e{items-sold}'
-  - '&6Booster &5+{booster}% &dx {times-proced}&7| &e{booster-amount} ⛁'
-  - '&6Money Made&}7| &e{deposit} ⛁'
+  - '&3Total items sold&7| &b{items-sold}'
+  - '&3Booster &f+{booster}% x {times-proced}&7| &b{booster-amount} ⛁'
+  - '&3Money Made&}7| &b{deposit} ⛁'
   - ''
-  - '&6&m-------------------'
+  - '&b&m-------------------'
 
 merchant-sell-items:
-  - '&6&m-------------------'
-  - '&6&lMerchant Backpack Sale: &7&o((Items sold for double price))'
+  - '&b&m-------------------'
+  - '&b&lMerchant Backpack Sale &f»'
+  - '&7&o((Items sold for double price))'
   - ''
-  - '&6Total items sold&7| &e{items-sold}'
-  - '&6Booster &5+{booster}% &dx {times-proced}&7| &e{booster-amount} ⛁'
-  - '&6Money Made&}7| &e{deposit} ⛁'
+  - '&3Total items sold&7| &b{items-sold}'
+  - '&3Booster &f+{booster}% x {times-proced}&7| &b{booster-amount} ⛁'
+  - '&3Money Made&}7| &b{deposit} ⛁'
   - ''
   - '&6&m-------------------'

@@ -1,10 +1,13 @@
 
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ØñØ 8Œ„õ.
+u	java:S135?"YReduce the total number of break and continue statements in this loop to use at most one.(•ÕğÁ8´Šõ.
 R
-java:S1874#"5Remove this use of "getItemInHand"; it is deprecated.(É†Ë·8ºõæû›.
-z	java:S135$"YReduce the total number of break and continue statements in this loop to use at most one.(’İ èıÿÿÿÿ8´Šõ.
+java:S1874%"5Remove this use of "getItemInHand"; it is deprecated.(•«¬«8û¨ˆù.
 W
-java:S1874!"5Remove this use of "getItemInHand"; it is deprecated.(¨‘ê¼üÿÿÿÿ8äÔôâŸ.
+java:S1874&"5Remove this use of "getItemInHand"; it is deprecated.(¨‘ê¼üÿÿÿÿ8äÔôâŸ.
+u	java:S135+"YReduce the total number of break and continue statements in this loop to use at most one.(•ÕğÁ8¼¦âÎ¤.
 R
-java:S1874 "5Remove this use of "getItemInHand"; it is deprecated.(•«¬«8û¨ˆù.
+java:S1874>"5Remove this use of "getItemInHand"; it is deprecated.(É†Ë·8ºõæû›.
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 66 to the 15 allowed.(ØñØ 8Œ„õ.
+W
+java:S1874Y"5Remove this use of "getItemInHand"; it is deprecated.(ÒèÒáúÿÿÿÿ8“çáÎ¤.

@@ -31,15 +31,15 @@ public class BackpackSellListener implements Listener {
     public void packSell(BackpackSellEvent event) {
         if (event.isCancelled()) return;
         int amountSold = 0, petProcAmount = 0;
-        double petBoostAmount = 0, totalDeposit = 0;
+        double petBoostAmount = 0, totalDeposit = 0, overallBoost = 0;
         PetRarity rarity = null;
-        double overallBoost = 0;
         if (event.getPet() != null) {
             rarity = PetApi.getPetRarity(event.getOwner().getPlayer(), PetType.MONEY);
             overallBoost += PetApi.getBoostAmount(PetType.MONEY) - 1;
         }
         overallBoost += BoostersApi.getBoostAmount(event.getOwner().getPlayer(), BoosterType.SELL);
         boolean saleComplete = false;
+        //
         for (UUID id : event.getBackpack().getContents().keySet()) {
             for (int i = 1; i <= event.getBackpack().getAmount(id); i++) {
                 if (event.getAmountToSell() != -1 && amountSold >= event.getAmountToSell()) {
@@ -60,6 +60,7 @@ public class BackpackSellListener implements Listener {
             if (saleComplete) break;
             event.getBackpack().remove(id, event.getBackpack().getAmount(id));
         }
+        //
         if (event.getSellMethod().equals(SellMethodType.MERCHANT)) {
             totalDeposit *= 2;
             petBoostAmount *= 2;

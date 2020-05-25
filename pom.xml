@@ -6,7 +6,7 @@
 
     <groupId>gg.steve.elemental</groupId>
     <artifactId>Backpacks</artifactId>
-    <version>0.9.8</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>Backpacks</name>

@@ -56,7 +56,7 @@ public class SellCmd {
         }
         String group = args[2];
         if (!group.equalsIgnoreCase("all")) {
-            if (!BackpackManager.isSellGroup(args[1])) {
+            if (!BackpackManager.isSellGroup(args[2])) {
                 CommandDebug.INVALID_SELL_GROUP.message(sender);
                 return;
             }

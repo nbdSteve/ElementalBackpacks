@@ -1,20 +1,14 @@
 package gg.steve.elemental.bps.core;
 
-import gg.steve.elemental.bps.Backpacks;
-import gg.steve.elemental.bps.event.BackpackSellEvent;
 import gg.steve.elemental.bps.event.PreBackpackSaleEvent;
 import gg.steve.elemental.bps.event.SellMethodType;
 import gg.steve.elemental.bps.managers.ConfigManager;
-import gg.steve.elemental.bps.message.MessageType;
-import gg.steve.elemental.bps.player.BackpackPlayer;
 import gg.steve.elemental.bps.utils.LogUtil;
 import gg.steve.elemental.pets.api.PetApi;
 import gg.steve.elemental.pets.core.PetType;
-import gg.steve.elemental.pets.rarity.PetRarity;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
@@ -24,13 +18,14 @@ import java.util.UUID;
 public class BackpackManager {
     private static Map<ItemStack, UUID> backpackItemsByItemStack;
     private static Map<UUID, ItemStack> backpackItemsById;
-    private static Map<String, Map<UUID, Double>> groupPrices;
+    private static Map<UUID, Double> basePrices;
+    private static Map<String, Double> groupMultipliers;
 
     public static void init() {
         backpackItemsByItemStack = new HashMap<>();
         backpackItemsById = new HashMap<>();
-        groupPrices = new HashMap<>();
-        groupPrices.put("all", new HashMap<>());
+        basePrices = new HashMap<>();
+        groupMultipliers = new HashMap<>();
         for (String entry : ConfigManager.CONFIG.get().getStringList("backpack-items")) {
             String[] parts = entry.split(":");
             if (parts.length != 4) {
@@ -40,16 +35,20 @@ public class BackpackManager {
             UUID id = UUID.fromString(parts[2]);
             ItemStack item = new ItemStack(Material.getMaterial(parts[0].toUpperCase()), Byte.parseByte(parts[1]));
             addBackpackItem(item, id);
-            groupPrices.get("all").put(id, Double.parseDouble(parts[3]));
+            basePrices.put(id, Double.parseDouble(parts[3]));
         }
         LogUtil.info("Successfully loaded all backpack items and base prices.");
         for (String group : ConfigManager.CONFIG.get().getConfigurationSection("sell-groups").getKeys(false)) {
-            groupPrices.put(group, new HashMap<>());
-            for (String item : ConfigManager.CONFIG.get().getConfigurationSection("sell-groups." + group).getKeys(false)) {
-                groupPrices.get(group).put(UUID.fromString(item), ConfigManager.CONFIG.get().getDouble("sell-groups." + group + "." + item + ".price"));
-            }
+            groupMultipliers.put(group, ConfigManager.CONFIG.get().getDouble("sell-groups." + group));
             LogUtil.info("Successfully loaded sell group: " + group);
         }
+//        for (String group : ConfigManager.CONFIG.get().getConfigurationSection("sell-groups").getKeys(false)) {
+//            groupPrices.put(group, new HashMap<>());
+//            for (String item : ConfigManager.CONFIG.get().getConfigurationSection("sell-groups." + group).getKeys(false)) {
+//                groupPrices.get(group).put(UUID.fromString(item), ConfigManager.CONFIG.get().getDouble("sell-groups." + group + "." + item + ".price"));
+//            }
+//            LogUtil.info("Successfully loaded sell group: " + group);
+//        }
     }
 
     public static boolean isBackpackItem(ItemStack item) {
@@ -88,12 +87,14 @@ public class BackpackManager {
 
     public static boolean isSellGroup(String group) {
         if (group.equalsIgnoreCase("all")) return true;
-        return groupPrices.containsKey(group);
+        return groupMultipliers.containsKey(group);
     }
 
     public static double getItemPrice(String group, UUID id) {
-        if (groupPrices.get(group).get(id) == 0) return groupPrices.get("all").get(id);
-        return groupPrices.get(group).get(id);
+        if (group.equalsIgnoreCase("all")) return basePrices.get(id);
+        return basePrices.get(id) * groupMultipliers.get(group);
+//        if (!groupPrices.get(group).containsKey(id)) return -1;
+//        return groupPrices.get(group).get(id);
     }
 
     public static void sellBackpack(Backpack backpack, String group, SellMethodType sellMethod) {
